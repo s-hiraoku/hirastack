@@ -1,0 +1,295 @@
+{
+  "version": 1,
+  "project": {
+    "name": "hirastack Python CLI",
+    "repository": "https://github.com/s-hiraoku/hirastack",
+    "baseline": "6903b8baed04f9b286a286097d5aa80194da436d"
+  },
+  "documents": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "831e8bfaa0b85bc3a6c1ce6e14902f498bc6730dbd49d09e7de5030a39b8864d",
+      "role": "normative",
+      "review": "reviewed",
+      "summary": "汎用/固有の分離、出典review、未解決保持、検証資産だけの保守と明示的公開権限。"
+    },
+    {
+      "path": "README.md",
+      "sha256": "64b6e584fb9413aa24aa6051042644287127900f63727b7289116e0eebe61967",
+      "role": "normative",
+      "review": "reviewed",
+      "summary": "汎用CLI/skillの入口、前提、終了code、未検証判定、2対象への適用を記述。"
+    },
+    {
+      "path": "THIRD_PARTY.md",
+      "sha256": "4894b33ec8bd9e1aff04b64659c8736fb97fc001088404f49b249fb50d34a8ae",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "upstream revisionとMIT notice、翻案範囲、新規coordinatorを区別する出典台帳。"
+    },
+    {
+      "path": "docs/architecture.md",
+      "sha256": "bf8b7efb26fc0132265571b89e4e0042cb99351585495fadd7f6ab306abe3f5f",
+      "role": "normative",
+      "review": "reviewed",
+      "summary": "汎用runnerの責務・contract・再利用の仕様。意味判断と機械検査、証拠scopeの限界を明示。"
+    },
+    {
+      "path": "docs/contract-format.md",
+      "sha256": "88b9d5a39516669e4be22ead59b2a103e368d19b7287bc6b1919d40c39a8a42d",
+      "role": "normative",
+      "review": "reviewed",
+      "summary": "汎用runnerの責務・contract・再利用の仕様。意味判断と機械検査、証拠scopeの限界を明示。"
+    },
+    {
+      "path": "docs/reuse.md",
+      "sha256": "7b2cd8d908dead80025c6ecc603abe8187084c5ccb982855a00391e31f2f7d06",
+      "role": "normative",
+      "review": "reviewed",
+      "summary": "汎用runnerの責務・contract・再利用の仕様。意味判断と機械検査、証拠scopeの限界を明示。"
+    },
+    {
+      "path": "projects/hab/README.md",
+      "sha256": "b08676222446f08e407a2189cd6ccb378cc9baebb7ab024cfa37d787faf7a280",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "第1適用先のproject固有仕様と証拠範囲。汎用runnerの要件にHAB契約を流用しない。"
+    },
+    {
+      "path": "projects/hab/conflicts.md",
+      "sha256": "3e368dc5e77ccf4894e118ee4c51880a2277197546f1d08e6fedf76400361e65",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "第1適用先のproject固有仕様と証拠範囲。汎用runnerの要件にHAB契約を流用しない。"
+    },
+    {
+      "path": "projects/hab/design-principles.md",
+      "sha256": "ec2df71c9936ab39c4a8c15d899fd1a8b79e8f65463147f28e5e1cbe9c65dc81",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "第1適用先のproject固有仕様と証拠範囲。汎用runnerの要件にHAB契約を流用しない。"
+    },
+    {
+      "path": "projects/hab/document-review.md",
+      "sha256": "494fab2dae2ea230516920d99317da87e2bbf76ee02e53f7acbf9ee9589ef5ff",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "第1適用先のproject固有仕様と証拠範囲。汎用runnerの要件にHAB契約を流用しない。"
+    },
+    {
+      "path": "projects/hab/review-notes.md",
+      "sha256": "7ac892dfacd8ecd5f21a50f80881fc5357620a32b781db90fc0a6035a81ef415",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "第1適用先のproject固有仕様と証拠範囲。汎用runnerの要件にHAB契約を流用しない。"
+    },
+    {
+      "path": "projects/hab/skills/verify-hab-design/SKILL.md",
+      "sha256": "5c5bc4eb916e314aec7739306f7d180332a96653215831a80d76a49ce5512f41",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "第1適用先のproject固有仕様と証拠範囲。汎用runnerの要件にHAB契約を流用しない。"
+    },
+    {
+      "path": "projects/hab/skills/verify-hab-design/features/README.md",
+      "sha256": "1c4684fd8b0fd2f6633f4f36d280679bd4dbf8da9ca1ab2dbba76f13dc115f8e",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "第1適用先のproject固有仕様と証拠範囲。汎用runnerの要件にHAB契約を流用しない。"
+    },
+    {
+      "path": "projects/hab/skills/verify-hab-design/features/authority.md",
+      "sha256": "d0385ce994c3787a0ee5dcf77e34692ea038e808cbff48edbaf0fa4fb0fe2e69",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "第1適用先のproject固有仕様と証拠範囲。汎用runnerの要件にHAB契約を流用しない。"
+    },
+    {
+      "path": "projects/hab/skills/verify-hab-design/features/bounds.md",
+      "sha256": "95aa314b631d881b0f0f831ea9617f94ab25c4356a2e0010320805a8c683092d",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "第1適用先のproject固有仕様と証拠範囲。汎用runnerの要件にHAB契約を流用しない。"
+    },
+    {
+      "path": "projects/hab/skills/verify-hab-design/features/communication.md",
+      "sha256": "047e28f5f663c21598e4454780ab7cccb2756a291d6c7b1ce8fa821349f251d1",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "第1適用先のproject固有仕様と証拠範囲。汎用runnerの要件にHAB契約を流用しない。"
+    },
+    {
+      "path": "projects/hab/skills/verify-hab-design/features/durable-receive.md",
+      "sha256": "4c0eb399e8a726c6f7c579ee2d9e22f328fc196956b4e544d79fdcbf811ef3a8",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "第1適用先のproject固有仕様と証拠範囲。汎用runnerの要件にHAB契約を流用しない。"
+    },
+    {
+      "path": "projects/hab/skills/verify-hab-design/features/recovery.md",
+      "sha256": "bc683b08fe7d992365b72979e6ab9699c3f0ea7212253a5b434f37920c614d19",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "第1適用先のproject固有仕様と証拠範囲。汎用runnerの要件にHAB契約を流用しない。"
+    },
+    {
+      "path": "projects/hab/validation.md",
+      "sha256": "01e7d1750548be635a5bad5020df539c9117c678e258ab1b9b71fc9fa4463a09",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "第1適用先のproject固有仕様と証拠範囲。汎用runnerの要件にHAB契約を流用しない。"
+    },
+    {
+      "path": "projects/hirastack/README.md",
+      "sha256": "d5e03514f3fc7ae6afd0e4b92d77e7aa9c707a8854245006f6bb52efca67810e",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "第2適用先のscopeと再利用前提。self適用は全projectの品質やsandboxの証明ではない。"
+    },
+    {
+      "path": "skills/create-design-verification/SKILL.md",
+      "sha256": "8df77fcc2e74539eff23f0e8a1e0b235c3665eec803899eb635e025988ef2181",
+      "role": "normative",
+      "review": "reviewed",
+      "summary": "プロジェクト独立のagent workflow。作成・保守・実行の責務と出典・実証・権限を規定する。"
+    },
+    {
+      "path": "skills/maintain-design-verification/SKILL.md",
+      "sha256": "71f30ff340e809689d0f24cd4379959fb19bc71938948c2e401ee67e071c232d",
+      "role": "normative",
+      "review": "reviewed",
+      "summary": "プロジェクト独立のagent workflow。作成・保守・実行の責務と出典・実証・権限を規定する。"
+    },
+    {
+      "path": "skills/verify-design/SKILL.md",
+      "sha256": "05d77274a0dec66a779970ecdd4e5f944467c015bd66d567d51fff67e463675f",
+      "role": "normative",
+      "review": "reviewed",
+      "summary": "プロジェクト独立のagent workflow。作成・保守・実行の責務と出典・実証・権限を規定する。"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "SELF-001",
+      "title": "プロジェクト独立",
+      "statement": "汎用runner/skillsと対象固有の契約・helperを分離し、異なるoriginと言語の対象を同じCLIで扱う。",
+      "rationale": "HABの通信要件を他projectへ持ち込まない。",
+      "scope": "Python CLIの32件の回帰と独立一時Git repoの実CLI経路。全projectの設計抽出正当性や悪意あるcode隔離は対象外。",
+      "decision": "accepted",
+      "citations": [
+        {
+          "path": "AGENTS.md",
+          "start": 3,
+          "end": 4,
+          "excerpt_sha256": "cb5375dacc15ccef720a0264a4edbfe474f8ca5e4a969d54feada43863313b4e"
+        },
+        {
+          "path": "docs/reuse.md",
+          "start": 3,
+          "end": 7,
+          "excerpt_sha256": "21080a40f69608b8cf4de1ad228df535a1e4c8502aa6d79cfde9844fd8bacd3d"
+        }
+      ],
+      "checks": [
+        "python-regressions"
+      ]
+    },
+    {
+      "id": "SELF-002",
+      "title": "出典driftと未レビューdraftを拒否",
+      "statement": "設計書/引用/追加削除/originを点検し、staleと空要件を実行前に拒否する。",
+      "rationale": "古い設計根拠を使った誤った合格を防ぐ。",
+      "scope": "Python CLIの32件の回帰と独立一時Git repoの実CLI経路。全projectの設計抽出正当性や悪意あるcode隔離は対象外。",
+      "decision": "accepted",
+      "citations": [
+        {
+          "path": "docs/architecture.md",
+          "start": 17,
+          "end": 19,
+          "excerpt_sha256": "e2d81711c913e1ff8e080a886f4af39bb180e4bf1f9e4b592bec9e3229e3f20a"
+        },
+        {
+          "path": "AGENTS.md",
+          "start": 5,
+          "end": 6,
+          "excerpt_sha256": "2ade1dd74c27c1f15ee8b94b2f59a2cd0ad35f6abcac85fe265886e2a63489fe"
+        }
+      ],
+      "checks": [
+        "python-regressions"
+      ]
+    },
+    {
+      "id": "SELF-003",
+      "title": "不完全な証拠を合格にしない",
+      "statement": "manual/open conflict/skip/TODO/zero tests/環境不足を成功へ推定しない。",
+      "rationale": "部分的成功を全体適合と誤認しない。",
+      "scope": "Python CLIの32件の回帰と独立一時Git repoの実CLI経路。全projectの設計抽出正当性や悪意あるcode隔離は対象外。",
+      "decision": "accepted",
+      "citations": [
+        {
+          "path": "docs/architecture.md",
+          "start": 19,
+          "end": 21,
+          "excerpt_sha256": "02d566ad4e15f6d2d4317b83223c6884f69f20aefc99e8f006414d763e0ec8f6"
+        },
+        {
+          "path": "AGENTS.md",
+          "start": 9,
+          "end": 9,
+          "excerpt_sha256": "a1036474d95d4e75f595e92aa2203d0dfb5721c873bed30ee1310a5424d23082"
+        }
+      ],
+      "checks": [
+        "python-regressions"
+      ]
+    },
+    {
+      "id": "SELF-004",
+      "title": "証拠・cleanup・実行対象の同一性",
+      "statement": "新しいevidenceを保存し、owned group終了確認後にscratchを消し、target/runner/helperの途中変更で合格を無効にする。",
+      "rationale": "証拠の喪失、未終了work、別codeのhashを記録した誤適合を防ぐ。",
+      "scope": "Python CLIの32件の回帰と独立一時Git repoの実CLI経路。全projectの設計抽出正当性や悪意あるcode隔離は対象外。",
+      "decision": "accepted",
+      "citations": [
+        {
+          "path": "docs/architecture.md",
+          "start": 17,
+          "end": 17,
+          "excerpt_sha256": "7193ca8a458a117b99fd891b6d3693b5ff139f37c853287254cd3722153c56bb"
+        },
+        {
+          "path": "docs/architecture.md",
+          "start": 23,
+          "end": 25,
+          "excerpt_sha256": "a88b9b6e1d3eb954c2f764aa6cee4e8b3e95815306dae3a539222dd668d56b18"
+        }
+      ],
+      "checks": [
+        "python-regressions"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "python-regressions",
+      "kind": "command",
+      "tier": "integration",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 120,
+      "protocol": "python-unittest",
+      "proves": "32件のoutcome回帰。別originの一時Git repoを実CLIでinit→draft拒否→audit→plan→execute→設計drift拒否し、process group/証拠/途中helper変更/skip/TODOも確認する。",
+      "limitations": "合成一時Git repoとowned local process。全OS/実service/悪意あるcommandのsandbox/全設計解釈の証明ではない。POSIX ps観測可能な環境を要求。"
+    }
+  ],
+  "conflicts": []
+}
