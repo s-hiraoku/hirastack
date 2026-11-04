@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import assert from "node:assert/strict";
 import { createRequire } from "node:module";
 import { mkdtempSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
