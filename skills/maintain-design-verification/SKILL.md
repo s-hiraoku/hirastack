@@ -26,7 +26,7 @@ Classify findings:
 | Product regression | Report source + live evidence; preserve intended requirement |
 | Missing auth/platform/product capability | Record attempted route and exact prerequisite; remain unverified |
 
-Do not accept broader execution rights because current implementation already has them. Do not convert a crash requirement to clean reopen, a durable-save requirement to raw ACK, a real-owner requirement to a synthetic token, or an unknown outcome to success.
+Do not accept broader execution rights because current implementation already has them. Do not convert a crash requirement to a clean restart, a persisted-state requirement to a success response, a real-user or real-owner requirement to a synthetic identity, a counted test protocol to bare `exit`, or an unknown outcome to success.
 
 ## Live maintenance pass
 

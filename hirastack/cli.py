@@ -12,8 +12,12 @@ import subprocess
 import sys
 import tempfile
 import time
+import xml.etree.ElementTree as ET
 
 DOCUMENT_SUFFIXES = {".md", ".mdx", ".rst", ".adoc", ".txt"}
+# Protocols that read the test runner's own totals. "exit" trusts the exit code only.
+REPORT_PROTOCOLS = {"junit-xml", "jest-json"}
+PROTOCOLS = {"exit", "node-tap", "python-unittest", "go-test-json", "cargo-test"} | REPORT_PROTOCOLS
 ID = re.compile(r"[A-Za-z][A-Za-z0-9_-]{0,79}\Z")
 
 
@@ -140,7 +144,12 @@ def validate(spec, root):
             inside(root, check.get("cwd", "."))
             timeout = check.get("timeout_seconds")
             require(type(timeout) is int and 1 <= timeout <= 3600, f"timeout must be 1..3600: {check['id']}")
-            require(check.get("protocol") in {"exit", "node-tap", "python-unittest"}, f"explicit assertion protocol required: {check['id']}")
+            require(check.get("protocol") in PROTOCOLS, f"explicit assertion protocol required: {check['id']}")
+            if check["protocol"] in REPORT_PROTOCOLS:
+                report = check.get("report")
+                require(nonempty(report) and report.startswith("{evidence}/") and ".." not in Path(report).parts, f"report must be a path under {{evidence}}/ for {check['protocol']}: {check['id']}")
+            else:
+                require("report" not in check, f"report is only valid for {sorted(REPORT_PROTOCOLS)}: {check['id']}")
             env = check.get("env", {})
             require(isinstance(env, dict) and all(isinstance(k, str) and re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", k) and isinstance(v, str) and "\0" not in v for k, v in env.items()), f"invalid environment overrides: {check['id']}")
     conflicts = spec.get("conflicts", [])
@@ -215,8 +224,12 @@ def command_argv(check, root, out, bundle):
     return argv
 
 
-def bundle_inputs(argv, bundle):
-    return {arg: digest(Path(arg).read_bytes()) if Path(arg).is_file() else "missing" for arg in argv if bundle is not None and Path(arg).is_absolute() and Path(arg).is_relative_to(bundle) and not Path(arg).is_dir()}
+def bundle_inputs(argv, bundle, out):
+    # Helpers shipped with the contract. Paths in this run's evidence are outputs, not helpers.
+    def helper(arg):
+        path = Path(arg)
+        return bundle is not None and path.is_absolute() and path.is_relative_to(bundle) and not path.is_relative_to(out) and not path.is_dir()
+    return {arg: digest(Path(arg).read_bytes()) if Path(arg).is_file() else "missing" for arg in argv if helper(arg)}
 
 
 def execute_check(check, root, out, bundle=None):
@@ -225,7 +238,7 @@ def execute_check(check, root, out, bundle=None):
         return {**result, "status": "unverified", "reason": check["instructions"]}
     log = out / (check["id"] + ".log")
     argv = command_argv(check, root, out, bundle)
-    inputs_before = bundle_inputs(argv, bundle)
+    inputs_before = bundle_inputs(argv, bundle, out)
     started = time.monotonic()
     process = None
     # Some storage contracts correctly reject symlinked macOS /var or /tmp paths.
@@ -253,29 +266,147 @@ def execute_check(check, root, out, bundle=None):
         shutil.rmtree(temporary)
     result.update(argv=argv, duration_seconds=round(time.monotonic() - started, 3), log=log.name, log_sha256=digest(log.read_bytes()), cleanup="confirmed" if cleanup_ok else "unconfirmed", scratch_retained=None if cleanup_ok else temporary)
     result["bundle_inputs_before"] = inputs_before
-    result["bundle_inputs_after"] = bundle_inputs(argv, bundle)
+    result["bundle_inputs_after"] = bundle_inputs(argv, bundle, out)
     if result["bundle_inputs_before"] != result["bundle_inputs_after"]:
         result.update(status="blocked", reason="verification helper changed during check")
-    if result["status"] == "pass" and check["protocol"] == "node-tap":
-        content = log.read_text(errors="replace")
-        totals = {key: re.findall(r"^# " + key + r" (\d+)\s*$", content, re.M) for key in ("tests", "pass", "fail", "skipped", "cancelled", "todo")}
-        if not all(len(values) == 1 for values in totals.values()) or int(totals["pass"][0]) == 0 or int(totals["fail"][0]) != 0 or int(totals["tests"][0]) != sum(int(totals[k][0]) for k in ("pass", "fail", "skipped", "cancelled", "todo")):
-            result.update(status="blocked", reason="missing/empty/inconsistent Node TAP totals; no proof")
-        elif int(totals["skipped"][0]) or int(totals["cancelled"][0]) or int(totals["todo"][0]):
-            result.update(status="unverified", reason="suite contains skipped/cancelled/TODO cases")
+    if result["status"] == "pass" and check["protocol"] != "exit":
+        report = None
+        if check["protocol"] in REPORT_PROTOCOLS:
+            report = Path(command_argv({"argv": [check["report"]]}, root, out, bundle)[0])
+            result["report"] = str(report)
+        try:
+            outcome = assess(check["protocol"], log.read_text(errors="replace"), report, out)
+        except (OSError, ValueError, ET.ParseError) as error:
+            outcome = Outcome("blocked", f"unreadable {check['protocol']} result: {error}")
+        if outcome.status != "pass":
+            result.update(status=outcome.status, reason=outcome.reason)
         else:
-            result["passed_tests"] = int(totals["pass"][0])
-    if result["status"] == "pass" and check["protocol"] == "python-unittest":
-        content = log.read_text(errors="replace")
+            result["passed_tests"] = outcome.passed
+        if outcome.counts is not None:
+            result["test_counts"] = outcome.counts
+    return result
+
+
+class Outcome:
+    """Result of reading a test runner's own totals. Only "pass" carries a passed count."""
+
+    def __init__(self, status, reason=None, passed=0, counts=None):
+        self.status, self.reason, self.passed, self.counts = status, reason, passed, counts
+
+
+def judge(counts, label):
+    # Shared rule for every protocol: no tests or no passes is not proof; any failure fails;
+    # skipped/pending/todo/ignored cases keep the check unverified instead of passing.
+    failed = counts.get("failed", 0)
+    incomplete = sum(v for k, v in counts.items() if k not in {"passed", "failed"})
+    if failed:
+        return Outcome("fail", f"{label} reports {failed} failed case(s) despite exit 0", counts=counts)
+    if counts.get("passed", 0) == 0:
+        return Outcome("blocked", f"{label} reports no passed tests; no proof", counts=counts)
+    if incomplete:
+        return Outcome("unverified", f"{label} contains skipped/pending/todo/ignored cases", counts=counts)
+    return Outcome("pass", passed=counts["passed"], counts=counts)
+
+
+def report_files(report, out, suffix):
+    require(report.resolve().is_relative_to(out.resolve()), "report must stay inside this run's evidence directory")
+    if report.is_dir():
+        files = sorted(p for p in report.rglob("*" + suffix) if p.is_file())
+    else:
+        files = [report] if report.is_file() else []
+    require(files, f"test report not produced: {report}")
+    return files
+
+
+def assess(protocol, content, report, out):
+    if protocol == "node-tap":
+        totals = {key: re.findall(r"^# " + key + r" (\d+)\s*$", content, re.M) for key in ("tests", "pass", "fail", "skipped", "cancelled", "todo")}
+        if not all(len(values) == 1 for values in totals.values()):
+            return Outcome("blocked", "missing/empty/inconsistent Node TAP totals; no proof")
+        n = {key: int(values[0]) for key, values in totals.items()}
+        if n["tests"] != sum(n[k] for k in ("pass", "fail", "skipped", "cancelled", "todo")):
+            return Outcome("blocked", "missing/empty/inconsistent Node TAP totals; no proof")
+        return judge({"passed": n["pass"], "failed": n["fail"], "skipped": n["skipped"], "cancelled": n["cancelled"], "todo": n["todo"]}, "Node TAP")
+    if protocol == "python-unittest":
         totals = re.findall(r"^Ran (\d+) tests? in .+$", content, re.M)
         summaries = re.findall(r"^OK(?: \([^\n]+\))?$", content, re.M)
         if len(totals) != 1 or int(totals[0]) == 0 or len(summaries) != 1:
-            result.update(status="blocked", reason="missing/empty unittest summary; no proof")
-        elif summaries[0] != "OK":
-            result.update(status="unverified", reason="unittest contains skipped/expected-failure cases")
-        else:
-            result["passed_tests"] = int(totals[0])
-    return result
+            return Outcome("blocked", "missing/empty unittest summary; no proof")
+        if summaries[0] != "OK":
+            return Outcome("unverified", "unittest contains skipped/expected-failure cases")
+        return Outcome("pass", passed=int(totals[0]), counts={"passed": int(totals[0])})
+    if protocol == "junit-xml":
+        counts = {"passed": 0, "failed": 0, "skipped": 0}
+        for path in report_files(report, out, ".xml"):
+            root = ET.parse(path).getroot()
+            # Count testcase elements; suite-level attributes are summaries a reporter may omit or get wrong.
+            for case in root.iter("testcase"):
+                tags = {child.tag for child in case}
+                if tags & {"failure", "error", "flakyFailure", "flakyError", "rerunFailure", "rerunError"}:
+                    counts["failed"] += 1
+                elif "skipped" in tags:
+                    counts["skipped"] += 1
+                else:
+                    counts["passed"] += 1
+            for suite in root.iter():
+                if suite.tag in {"testsuite", "testsuites"}:
+                    # A suite-level <error>/<failure> (setup or collection error) has no testcase of its own.
+                    counts["failed"] += sum(1 for child in suite if child.tag in {"error", "failure"})
+        return judge(counts, "JUnit XML")
+    if protocol == "jest-json":
+        files = report_files(report, out, ".json")
+        require(len(files) == 1, "jest-json expects exactly one report file")
+        data = json.loads(files[0].read_text())
+        counts = {"passed": 0, "failed": 0, "skipped": 0}
+        broken_suites = 0
+        for suite in data.get("testResults", []):
+            cases = suite.get("assertionResults", [])
+            if suite.get("status") == "failed" and not any(c.get("status") == "failed" for c in cases):
+                broken_suites += 1  # a suite that failed to load or run has no failing assertion
+            for case in cases:
+                status = case.get("status")
+                counts["passed" if status == "passed" else "failed" if status == "failed" else "skipped"] += 1
+        if data.get("numTotalTests") != sum(counts.values()):
+            return Outcome("blocked", "Jest/Vitest numTotalTests disagrees with per-test results; no proof", counts=counts)
+        counts["failed"] += broken_suites
+        if data.get("success") is False and not counts["failed"]:
+            counts["failed"] = 1
+        return judge(counts, "Jest/Vitest JSON")
+    if protocol == "go-test-json":
+        counts = {"passed": 0, "failed": 0, "skipped": 0}
+        events = 0
+        for line in content.splitlines():
+            if not line.startswith("{"):
+                continue
+            try:
+                event = json.loads(line)
+            except ValueError:
+                continue
+            action = event.get("Action")
+            if action not in {"pass", "fail", "skip"}:
+                continue
+            events += 1
+            if event.get("Test"):
+                counts[{"pass": "passed", "fail": "failed", "skip": "skipped"}[action]] += 1
+            elif action == "fail":
+                counts["failed"] += 1  # package build or TestMain failure
+            elif action == "skip":
+                counts["skipped"] += 1  # package with no test files is not proof
+        if events == 0:
+            return Outcome("blocked", "no go test -json events; run go test with -json")
+        return judge(counts, "go test -json")
+    if protocol == "cargo-test":
+        lines = re.findall(r"^test result: (ok|FAILED)\. (\d+) passed; (\d+) failed; (\d+) ignored; (\d+) measured; (\d+) filtered out", content, re.M)
+        if not lines:
+            return Outcome("blocked", "missing cargo test summary; no proof")
+        counts = {"passed": 0, "failed": 0, "ignored": 0}
+        for state, passed, failed, ignored, _measured, _filtered in lines:
+            # filtered out is an explicit selection in argv, not an incomplete run.
+            counts["passed"] += int(passed)
+            counts["failed"] += int(failed) or (1 if state == "FAILED" else 0)
+            counts["ignored"] += int(ignored)
+        return judge(counts, "cargo test")
+    raise ValueError(f"unknown protocol {protocol}")
 
 
 def run(spec, root, out, execute, spec_hash, bundle=None):
@@ -285,7 +416,7 @@ def run(spec, root, out, execute, spec_hash, bundle=None):
     out.mkdir(parents=True, mode=0o700)
     before = snapshot(root)
     def verification_inputs():
-        return {"runner": digest(Path(__file__).read_bytes()), "helpers": {c["id"]: bundle_inputs(command_argv(c, root, out, bundle), bundle) for c in spec["checks"] if c["kind"] == "command"}}
+        return {"runner": digest(Path(__file__).read_bytes()), "helpers": {c["id"]: bundle_inputs(command_argv(c, root, out, bundle), bundle, out) for c in spec["checks"] if c["kind"] == "command"}}
     verification_before = verification_inputs()
     used = {key for req in spec["requirements"] if req["decision"] in {"accepted", "unresolved"} for key in req["checks"]}
     checks = []

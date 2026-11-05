@@ -29,17 +29,17 @@
     },
     {
       "path": "docs/architecture.md",
-      "sha256": "701b9de0763edfebbb3cf5184e4cf49b34bbb6d8649b2f229b21c26146e160e5",
+      "sha256": "c2339ce801a7a92987ff23ec54c9319a09a75d1a91613a432953ea8272807e09",
       "role": "normative",
       "review": "reviewed",
       "summary": "汎用runnerの責務・contract・再利用の仕様。意味判断と機械検査、証拠scopeの限界を明示。"
     },
     {
       "path": "docs/contract-format.md",
-      "sha256": "ac0a57ca6c9f1c62ea8c244d51cd34839886171e671db53fb9f0f8692a5dc8dc",
+      "sha256": "bcc59adec3ec1c50701cc08bcc65c8e877ff58b5c6b9b6f91d257b7541de3b9a",
       "role": "normative",
       "review": "reviewed",
-      "summary": "汎用runnerの責務・contract・再利用の仕様。意味判断と機械検査、証拠scopeの限界を明示。"
+      "summary": "契約v1の形式。代表言語のassertion protocol（TAP/unittest/JUnit XML/Jest・Vitest JSON/go test -json/cargo test）と共通の判定規則、reportは新規evidence配下に限定。"
     },
     {
       "path": "docs/reuse.md",
@@ -57,14 +57,14 @@
     },
     {
       "path": "skills/create-design-verification/SKILL.md",
-      "sha256": "83583b12d676ce52c1805cbaee917d3e98afa12368be44efadedc4014106a8f4",
+      "sha256": "c679b117e7ad0d7f5ad112d21ac9139085bf27d56ea3a2876608a4dc1aa79dfc",
       "role": "normative",
       "review": "reviewed",
       "summary": "プロジェクト独立のagent workflow。作成・保守・実行の責務と出典・実証・権限を規定する。"
     },
     {
       "path": "skills/maintain-design-verification/SKILL.md",
-      "sha256": "71f30ff340e809689d0f24cd4379959fb19bc71938948c2e401ee67e071c232d",
+      "sha256": "ff8057cac6c26e40c078eadc722001bd08f0aab34fc36680e150a3cb394a51e5",
       "role": "normative",
       "review": "reviewed",
       "summary": "プロジェクト独立のagent workflow。作成・保守・実行の責務と出典・実証・権限を規定する。"
