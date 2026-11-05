@@ -239,5 +239,17 @@ class HarnessTests(unittest.TestCase):
             self.assertNotEqual(report["checks"][0]["status"], "pass")
 
 
+class RepositoryLayoutTests(unittest.TestCase):
+    def test_projects_holds_only_the_self_contract(self):
+        projects = Path(__file__).resolve().parent.parent / "projects"
+        found = sorted(entry.name for entry in projects.iterdir())
+        self.assertEqual(
+            found,
+            ["hirastack"],
+            "target-specific contracts and documents belong in the target repository "
+            "(or a user-selected verification repo), not in hirastack/projects/",
+        )
+
+
 if __name__ == "__main__":
     unittest.main()

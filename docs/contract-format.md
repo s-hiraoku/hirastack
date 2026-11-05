@@ -1,6 +1,6 @@
 # Contract v1
 
-契約はUTF-8 JSON。実例は [HAB contract](../projects/hab/contract.json)。`python3 -m hirastack audit` が形式と出典を検査します。必須fieldは CLI の `validate()` が正本です。
+契約はUTF-8 JSON。実例は [hirastack自身の契約](../projects/hirastack/contract.json)。`python3 -m hirastack audit` が形式と出典を検査します。必須fieldは CLI の `validate()` が正本です。
 
 | Field | 内容 |
 | --- | --- |
@@ -20,7 +20,7 @@
 
 argvの `{target}` はtarget root、`{bundle}`はcontract所在dir、`{evidence}`は今回の新規run dirへ置換します。shell展開や環境変数展開はしません。`cwd`はtarget内に限定します。対象の追跡対象と衝突しないよう、evidenceはtarget外に置きます。
 
-commandごとにcanonicalな専用scratch dirを作り、`TMPDIR`として渡して終了後に削除します。macOSの`/var`等のsymlink表現を厳密なstorageが拒否する問題を避けます。`env`の上書きもreportへ記録します。HABのcurrent-authorizationはCLIのstderr完全一致試験のため`NODE_OPTIONS=--disable-warning=ExperimentalWarning`を明示設定し、ExperimentalWarning種別全体を抑制します。元の未抑制失敗も保存します。
+commandごとにcanonicalな専用scratch dirを作り、`TMPDIR`として渡して終了後に削除します。macOSの`/var`等のsymlink表現を厳密なstorageが拒否する問題を避けます。`env`の上書きもreportへ記録します。警告の抑制などで環境を上書きする場合は、その範囲を`limitations`に書き、元の未抑制失敗も証拠として保存します。
 
 文書探索はGit管理下およびignoreされていないuntrackedのMarkdown/MDX/RST/AsciiDoc/txtと、`docs/`配下の非画像・非PDF assetを含みます。PDF/画像、wiki、issue、外部参照、別名の設計ディレクトリにある非text assetは自動では読みません。create/maintainで追加調査し、必要なら明示的にdocumentsへ登録する前に探索policyを対応させます。重要設計をignoreしたり別拡張子へ隠したりしてscopeを狭めてはいけません。
 

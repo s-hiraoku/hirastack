@@ -32,7 +32,7 @@ Record contradictory meanings, explicit supersession, subsystem/version differen
 
 ## Generate useful verification
 
-Write a contract in `projects/<name>/` here or in a user-selected verification repo. Keep generic mechanisms free of target/product names. Generate or maintain the runtime-native project skill (`.agents/skills/verify-<name>` on Codex) with frontmatter and exact Launch, Doctor, Drive, Evidence, Cleanup and Helpers sections. A skill stored here as an example is not automatically installed in the target.
+Write the contract and its project documents in the target repository (default, e.g. a verification directory beside its verify skill) or in a user-selected verification repo, never inside hirastack. Keep generic mechanisms free of target/product names. Generate or maintain the runtime-native project skill (`.agents/skills/verify-<name>` on Codex) with frontmatter and exact Launch, Doctor, Drive, Evidence, Cleanup and Helpers sections. A skill stored here as an example is not automatically installed in the target.
 
 Map every active requirement to checks; use an honest manual recipe for unautomatable behavior. A manual requirement stays unverified in this CLI. Tests must observe a user/protocol path and relevant side effects. Static import checks establish dependency boundaries only. ACK, HTTP 200, mock responses, open processes or a rendered final screen alone cannot prove broader execution semantics. Build a feature map for each public entry point; inherited maps may need a source review before reuse.
 

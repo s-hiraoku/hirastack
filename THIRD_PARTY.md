@@ -12,4 +12,3 @@ The installed open-pstack skill package version `1.16.0` was also read. It adds 
 
 hirastack adds design-document inventory, source/excerpt hashes, purpose/rationale/invariant ledgers, explicit ambiguity, a dependency-free runner, conservative outcome aggregation and the new verify-design coordinator. Upstream's maintenance workflow is not treated as authorization to create commits, PRs or deployments. verify-design is a new coordinator, not a claim that pstack already provides a generic execution skill.
 
-HAB source remains in its own repository. Project documents here are original review summaries with commit-pinned links. Helpers call the HAB APIs and existing synthetic verification scaffold; they do not vendor the HAB implementation or claim its license. A2A/NATS/product documentation links retained in HAB are source context; this task did not independently revalidate every external standard or real product version.

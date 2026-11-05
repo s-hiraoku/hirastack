@@ -24,4 +24,4 @@ flowchart LR
 
 runnerとargvで指定したbundle helperのhashは実行前後で比較し、途中変更は合格を無効にします。helperが別途importするbundle fileの推移的pin、検査間に一時変更して戻す操作、依存packageや実行binaryのattestationまでは保証しません。
 
-意味の正しさは契約の引用・scope・観測方法のレビューが必要です。exit 0も偽装できるので、Node testは非空のTAP totalsとzero skip/cancel/failを要求します。それでも「検証項目が本当に要件を証明するか」は別の責務です。HABではこの限界を、保存前ACK、直接/間接依存、正常再起動とcrashの混同を対象に具体化しています。
+意味の正しさは契約の引用・scope・観測方法のレビューが必要です。exit 0も偽装できるので、Node testは非空のTAP totalsとzero skip/cancel/failを要求します。それでも「検証項目が本当に要件を証明するか」は別の責務です。保存前ACK、直接/間接依存、正常再起動とcrashの混同のような弱い証明は、各プロジェクトの契約で負例として具体化します。
