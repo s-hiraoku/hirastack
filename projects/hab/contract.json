@@ -1,0 +1,1706 @@
+{
+  "version": 1,
+  "project": {
+    "name": "HAB",
+    "repository": "https://github.com/s-hiraoku/hiraoku-agent-base",
+    "baseline": "c667095dcd3b0d7c672b522fe3dd45eaeade0c81"
+  },
+  "documents": [
+    {
+      "path": ".claude/skills/security-audit/AI-AND-LLM.md",
+      "sha256": "7335a95c43554eadefcf03ece639291bb0e038c398a179299e3887ffe06bd2ef",
+      "role": "excluded",
+      "review": "reviewed",
+      "summary": "第三者のsecurity audit方法論。除外分類を確認。HAB固有設計として本文を抽出しない。",
+      "exclusion_reason": "Vendored methodology, not first-party HAB product design; retain in inventory to detect additions/changes."
+    },
+    {
+      "path": ".claude/skills/security-audit/ATTACK-CLASSES.md",
+      "sha256": "3ee4f00c6e8c9dcf6dd02dd5ac2a4ceb322e2085f3e9fbe79cf0c6330bc7ef83",
+      "role": "excluded",
+      "review": "reviewed",
+      "summary": "第三者のsecurity audit方法論。除外分類を確認。HAB固有設計として本文を抽出しない。",
+      "exclusion_reason": "Vendored methodology, not first-party HAB product design; retain in inventory to detect additions/changes."
+    },
+    {
+      "path": ".claude/skills/security-audit/CLIENT-SIDE.md",
+      "sha256": "613f6b98f86083e045525c5b60154ffdab122bac35f1e05eb17488e6e453370c",
+      "role": "excluded",
+      "review": "reviewed",
+      "summary": "第三者のsecurity audit方法論。除外分類を確認。HAB固有設計として本文を抽出しない。",
+      "exclusion_reason": "Vendored methodology, not first-party HAB product design; retain in inventory to detect additions/changes."
+    },
+    {
+      "path": ".claude/skills/security-audit/CLOUD-AND-DEPLOYMENT.md",
+      "sha256": "3c80f3088be22345e07b057c056d6ed99fe2b0304f794398964f7ccd5a496ca3",
+      "role": "excluded",
+      "review": "reviewed",
+      "summary": "第三者のsecurity audit方法論。除外分類を確認。HAB固有設計として本文を抽出しない。",
+      "exclusion_reason": "Vendored methodology, not first-party HAB product design; retain in inventory to detect additions/changes."
+    },
+    {
+      "path": ".claude/skills/security-audit/DATA-ISOLATION-AND-LIFECYCLE.md",
+      "sha256": "307dcb3e24d292715c4a041190e7bb135646a37eb6187619ae01d000a634a4ad",
+      "role": "excluded",
+      "review": "reviewed",
+      "summary": "第三者のsecurity audit方法論。除外分類を確認。HAB固有設計として本文を抽出しない。",
+      "exclusion_reason": "Vendored methodology, not first-party HAB product design; retain in inventory to detect additions/changes."
+    },
+    {
+      "path": ".claude/skills/security-audit/DESKTOP-MOBILE-AND-LOCAL-IPC.md",
+      "sha256": "58eae8ee0ca6a46611c501ec5a3ab47fdff88dd7db0d8d74789bbf8bb19d8cb2",
+      "role": "excluded",
+      "review": "reviewed",
+      "summary": "第三者のsecurity audit方法論。除外分類を確認。HAB固有設計として本文を抽出しない。",
+      "exclusion_reason": "Vendored methodology, not first-party HAB product design; retain in inventory to detect additions/changes."
+    },
+    {
+      "path": ".claude/skills/security-audit/HUNTING.md",
+      "sha256": "71c121decea1322c47c718f6e110f1a892980bb4266bd7ac55ef043a213ade09",
+      "role": "excluded",
+      "review": "reviewed",
+      "summary": "第三者のsecurity audit方法論。除外分類を確認。HAB固有設計として本文を抽出しない。",
+      "exclusion_reason": "Vendored methodology, not first-party HAB product design; retain in inventory to detect additions/changes."
+    },
+    {
+      "path": ".claude/skills/security-audit/MEMORY-SAFETY-AND-BINARY.md",
+      "sha256": "7c8b0dccfb35315cca2455509674d49632b2fe37e1f3aac16c1a496a7e9924a7",
+      "role": "excluded",
+      "review": "reviewed",
+      "summary": "第三者のsecurity audit方法論。除外分類を確認。HAB固有設計として本文を抽出しない。",
+      "exclusion_reason": "Vendored methodology, not first-party HAB product design; retain in inventory to detect additions/changes."
+    },
+    {
+      "path": ".claude/skills/security-audit/PROTOCOLS-RPC-AND-MESSAGING.md",
+      "sha256": "8b73816fa5b3697c9c40977f0c836b40f01d6e81929ff2720fe83ce089e9a619",
+      "role": "excluded",
+      "review": "reviewed",
+      "summary": "第三者のsecurity audit方法論。除外分類を確認。HAB固有設計として本文を抽出しない。",
+      "exclusion_reason": "Vendored methodology, not first-party HAB product design; retain in inventory to detect additions/changes."
+    },
+    {
+      "path": ".claude/skills/security-audit/RECONNAISSANCE.md",
+      "sha256": "02ca887aca84de8ae137f1891bd2f0a54f28d3fa6da92a27f54734382b3381a2",
+      "role": "excluded",
+      "review": "reviewed",
+      "summary": "第三者のsecurity audit方法論。除外分類を確認。HAB固有設計として本文を抽出しない。",
+      "exclusion_reason": "Vendored methodology, not first-party HAB product design; retain in inventory to detect additions/changes."
+    },
+    {
+      "path": ".claude/skills/security-audit/RESOURCE-EXHAUSTION-AND-AVAILABILITY.md",
+      "sha256": "4326fab5c92a0b4c420a70196254040105cd794026562130b59bf1a6db3e4baa",
+      "role": "excluded",
+      "review": "reviewed",
+      "summary": "第三者のsecurity audit方法論。除外分類を確認。HAB固有設計として本文を抽出しない。",
+      "exclusion_reason": "Vendored methodology, not first-party HAB product design; retain in inventory to detect additions/changes."
+    },
+    {
+      "path": ".claude/skills/security-audit/SKILL.md",
+      "sha256": "5e3e96a1e438d8f35fef0a1e38f02d4f00e2bdf910401b7dfe00e6779c6dac85",
+      "role": "excluded",
+      "review": "reviewed",
+      "summary": "第三者のsecurity audit方法論。除外分類を確認。HAB固有設計として本文を抽出しない。",
+      "exclusion_reason": "Vendored methodology, not first-party HAB product design; retain in inventory to detect additions/changes."
+    },
+    {
+      "path": ".claude/skills/security-audit/SUPPLY-CHAIN-AND-RELEASE.md",
+      "sha256": "f372e919940e335468ba1ae09f99026c3986a345f7fe26f8068f132e199f52a5",
+      "role": "excluded",
+      "review": "reviewed",
+      "summary": "第三者のsecurity audit方法論。除外分類を確認。HAB固有設計として本文を抽出しない。",
+      "exclusion_reason": "Vendored methodology, not first-party HAB product design; retain in inventory to detect additions/changes."
+    },
+    {
+      "path": ".claude/skills/security-audit/UPSTREAM.md",
+      "sha256": "313070b73331828d311d2b8c5ce7a48a066d2a91d139202bf41d20aa43407701",
+      "role": "excluded",
+      "review": "reviewed",
+      "summary": "第三者のsecurity audit方法論。除外分類を確認。HAB固有設計として本文を抽出しない。",
+      "exclusion_reason": "Vendored methodology, not first-party HAB product design; retain in inventory to detect additions/changes."
+    },
+    {
+      "path": ".claude/skills/security-audit/VALIDATION-AND-REPORTING.md",
+      "sha256": "b892470cb89bb31f33403e050d4bdfbe2cdaef940ade1496fa65e32b2e129449",
+      "role": "excluded",
+      "review": "reviewed",
+      "summary": "第三者のsecurity audit方法論。除外分類を確認。HAB固有設計として本文を抽出しない。",
+      "exclusion_reason": "Vendored methodology, not first-party HAB product design; retain in inventory to detect additions/changes."
+    },
+    {
+      "path": ".claude/skills/security-audit/WEB-PROTOCOL-AND-AUTH.md",
+      "sha256": "4f3066dffa23c5635859187be9b96c32f2aff29a688186b91ff0c63e47d62b5c",
+      "role": "excluded",
+      "review": "reviewed",
+      "summary": "第三者のsecurity audit方法論。除外分類を確認。HAB固有設計として本文を抽出しない。",
+      "exclusion_reason": "Vendored methodology, not first-party HAB product design; retain in inventory to detect additions/changes."
+    },
+    {
+      "path": ".claude/skills/verify-hab/SKILL.md",
+      "sha256": "8a30138cf7e7bfba02c9e5133920564661684251a60e7ec518b315bff5356dba",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "合成identityのreal MCP/HTTP scaffoldとowned cleanup。minimal raw ACKは受信durability証明に不足。"
+    },
+    {
+      "path": ".claude/skills/verify-hab/features/README.md",
+      "sha256": "ab9ea30d461d5749a545a96b93d099e58b17c911ddd5f858383b6b5359e913a6",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "既存7featureの索引。別入口の成功で未達featureを代替しない。"
+    },
+    {
+      "path": ".claude/skills/verify-hab/features/access-control.md",
+      "sha256": "63401bcd6d9a927d648052ac0e2e5b2a73b890d1e605c7978721a3f3035ecaaa",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "無認証/未知Bearer/Hostの拒否とcatalogを確認する。実OAuth受入れとは別。"
+    },
+    {
+      "path": ".claude/skills/verify-hab/features/configured-relay.md",
+      "sha256": "0a3803be626690884d73a1ba996f0246314ea67865a8474dd7366428c17ef8e0",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "設定済みRelay/admin CLIの操作。minimal ACK手順ではdurable inbox確認が不足。"
+    },
+    {
+      "path": ".claude/skills/verify-hab/features/enrollment-terminal.md",
+      "sha256": "e254b7e838a7cfc99e6e54040c52e9f47982a25cfa0182462c55f47b6751e2a1",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "exact addressによる明示登録。tmuxへS変数がexportされないrecipe gapあり。"
+    },
+    {
+      "path": ".claude/skills/verify-hab/features/receive-ack.md",
+      "sha256": "796839316fe96dbb904700017d1fd08969f403d17bac8165f72949ffd6f1e832",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "lease/token/replayのwire検証。poll.json保存と直接ACKはSQLiteInbox commitの証明ではない。"
+    },
+    {
+      "path": ".claude/skills/verify-hab/features/resolve-address.md",
+      "sha256": "3cc17110598cffdc31707795d909b75ccf3345c32179a749db5ae1e9d4d42218",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "address解決とunknown/validation拒否。解決先IDをsenderが永続保存した証拠とは別。"
+    },
+    {
+      "path": ".claude/skills/verify-hab/features/restart-durability.md",
+      "sha256": "c747fd3e855aff0e1c55021f6a841325e8db02a13482b5513900290391703410",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "正常process停止/reopenの検証。kill-9 coverageという記述は選択されたtest sourceで裏付けられない。"
+    },
+    {
+      "path": ".claude/skills/verify-hab/features/send-message.md",
+      "sha256": "df7df1f2cf91b2e3f60b7b4e744f228c2d88ce6ec820427a1f248556de72feb3",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "同一ID再送、異内容conflict、sender scopeのMCP検証。Task不生成を包括証明するものではない。"
+    },
+    {
+      "path": "README.md",
+      "sha256": "6265bfd1370827dc4aaf45e9a95748d792aaaf40a3f452543de1c63658ff9bdc",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "独立したagentの判断を保持し、共通MCPの通信と任意の実行経路を区別する。接続状況と証拠の範囲を案内する。"
+    },
+    {
+      "path": "docs/a2a-relay-preview.md",
+      "sha256": "69ac5c4487301389a77fc5b2f3eafad77676e9d3c54d349c2386e08c9213ca7a",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "固定connectivity preview。保存ACKはsubmitでなく、完了にはdurable返信と独立engine証拠が必要。"
+    },
+    {
+      "path": "docs/a2a-sdk-preview.md",
+      "sha256": "beb656183872afe3c5697637daccc0de5ea96b784d4cdb4573d0c23d91a6f157",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "opt-in公式SDKと既存engine1個。認証から権限を得て、message/caller fieldから得ない。"
+    },
+    {
+      "path": "docs/adapter-host.md",
+      "sha256": "471b0cbdac6f3773ea0bd55c71afa76d1cc344ca03b1196c4c74abba8ba3519f",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "明示1命令のhost合成。新DBはpaused。ACK/一覧からTaskを作らず、timeout後も未終了workの枠を保持する。"
+    },
+    {
+      "path": "docs/adapter-owner.md",
+      "sha256": "2d70b4ef18689aadce58754677c43fb88291112da391f4ee214946c420f6a9d4",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "単一host ownerのprocess-lifetime SQLite lock。TTL takeoverなし。owner取得は未知RPC照合を代替しない。"
+    },
+    {
+      "path": "docs/adapter-reply-budget.md",
+      "sha256": "ab63907e2b35fcaced740630f5682c7589c8070e7043082b9bf695bf5a7bd9e2",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "元要求/thread/個体ごとの有限返信予約。不明送信で枠を返却せず、新ID/threadで迂回しない。"
+    },
+    {
+      "path": "docs/agent-address-rename.md",
+      "sha256": "2ff8bc87b7fc4c051be7cca244cc03060facff15cb6dc026e6387b5cbfffe971",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "同じ不変IDと旧名予約を保つ明示opt-in prototype。採用・本番移行・転送規則は別判断。"
+    },
+    {
+      "path": "docs/answer-intents.md",
+      "sha256": "a09c32357da9a2591ddb07a5c4f4360f460159aba64131507f0412122c4e1658",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "決定済み回答を配送前に永続化。不明状態で元replyとbudgetを維持し、返信判断は受信applicationに残す。"
+    },
+    {
+      "path": "docs/architecture.md",
+      "sha256": "50fc0603bb3dab5cf331f96d683d99318b6fb2514af25ca9627fdf5755dc819e",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "旧固定Taskの認可、原子的claim、lease/fence、transactional audit/outbox、単一DBを規定する。currentの表現には時点差が残る。"
+    },
+    {
+      "path": "docs/attachment-capacity.md",
+      "sha256": "b559181b9b4b2e76bbee28ff33bae49b3c150216922bd376e522ec2ce4ea44d8",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "宣言byteと記録数を予約し、admissionとcountを同transactionにする。全writerは同policyを使う。"
+    },
+    {
+      "path": "docs/attachment-deletion.md",
+      "sha256": "b3297e087b0a5dbefe63d2b08b46c852723dda3b72b2a1fa9296eb60341330b9",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "terminalと削除intentを同時commitし、物理削除は別の有限・fenced・同一identity再試行にする。"
+    },
+    {
+      "path": "docs/attachment-inbox.md",
+      "sha256": "63fb77c24cd4a07f3902c5a0cfee1b1e3c285493fa896dbe300c02b04f76a451",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "bounded chunkを永続保存し、全長/digest確認後にbody/ACKを保存する。検証済みreceiver bytesはserver TTLと別管理。"
+    },
+    {
+      "path": "docs/attachment-maintenance.md",
+      "sha256": "67d3636244a72621aa006d9ffedf49afe64452b31f9cc126107afe3518d657fd",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "明示した有限1cycleのみ。独立DB commitと部分結果を残し、自動daemonや自動復旧にしない。"
+    },
+    {
+      "path": "docs/attachment-outbox.md",
+      "sha256": "039d0c2c9d73079cea5e5f8e8c097677af39da9273245ddd70bc6c652f31b04d",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "finalize済みupload/sourceを検証してenqueue。不明状態で元envelopeを維持し、明示handoff後だけsourceを解放。"
+    },
+    {
+      "path": "docs/attachment-receiver.md",
+      "sha256": "7fc0421bd954fe693f786b29be60e4ad4f536023e321a9add8b1132a6191d10f",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "完全delivery/checkpointをdownload前に保存。1work単位最大1RPC、verify/save後ACK、遅延応答をfenceする。"
+    },
+    {
+      "path": "docs/attachment-transport.md",
+      "sha256": "8bdc467c4f1f02daf97a1f829deb3ee7202ad2bc05d9dd251bacf6faf764cde2",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "任意catalogとstrict bounded codec。固定endpoint、現在認可、同ID照合。receiver保存後ACK。"
+    },
+    {
+      "path": "docs/auth0-account-step.md",
+      "sha256": "cd9f44255d8c28f107159021b91749d346260fff1d4e0248f7fea17a30034353",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "account作成だけの歴史的手順。credential/client/接続/課金への承認に拡張しない。料金数値は当時の情報。"
+    },
+    {
+      "path": "docs/auth0-boundary.md",
+      "sha256": "fa31c8305a1cf607b0c74804e35f30cda3c16ddb7beef0cdb4d05d143aae7f63",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "任意Hub resource server。固定issuer/resource、署名・subject/client/scopeを毎要求確認。未設定はdeny-all、実接続は別。"
+    },
+    {
+      "path": "docs/common-mcp-connection.md",
+      "sha256": "2c2d05d15b81626d92da223f57f668fd3e5be0e5dfff4704987d4962113e0b31",
+      "role": "normative",
+      "review": "reviewed",
+      "summary": "各agentの標準MCPで共通Relayを呼ぶ。製品実行APIに依存せず、受信側が保存後ACKと内容判断を担う。"
+    },
+    {
+      "path": "docs/diagrams/manifest.json",
+      "sha256": "c965b9773bda99fe98dbb531d3814de8a861043f4531ca7141e9d4ece25b71ab",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "Markdown Mermaidと生成PNGのdigestおよびrenderer版を結ぶ補助manifest。画像自体は設計の別正本にしない。"
+    },
+    {
+      "path": "docs/diagrams/render-mermaid.mjs",
+      "sha256": "3d04f2ac79a280b8914bf60d5cb513e061b84260bf0abd6c05155ad5e513505f",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "正本Markdownから抽出しboundedな専用browserで生成。--checkはmanifestとsource/image digestの一致を確認。"
+    },
+    {
+      "path": "docs/dots-hermes-connection-plan.md",
+      "sha256": "f04c9e83d77a0527d9e790e51302d217b11336329e2aae9c39ba56be84b56135",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "共通MCP常用接続の準備。有限試験成功は実Dots/Hermesの継続受信受入れではない。"
+    },
+    {
+      "path": "docs/durable-stop-gate.md",
+      "sha256": "d51c31394edc4c81a0093251e48cba36f1566affdf42a24532f3458a3349e8b3",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "追加deny境界。epochと効果を同transactionで確認。resumeで旧requestを復活させずremote停止を偽装しない。"
+    },
+    {
+      "path": "docs/finite-mcp-trial.md",
+      "sha256": "418b04acba5e7eb5748bfda36e6dea7fec4caca72c421375bd4f19333fbc6121",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "実Codex/Hermes有限往復の過去証拠。host保存・再読後ACK。常駐・実Dots・汎用transactional inboxは未証明。"
+    },
+    {
+      "path": "docs/fixed-pilot.md",
+      "sha256": "36513770de448422a3e49ad2ec09baf5fafafe69626366bcfb7a59177f5bcacf",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "旧固定Runs試験の歴史。固定入力/出力/modelと元期限を維持し、独立Inspectorを必要とする。"
+    },
+    {
+      "path": "docs/fixed-readback-worker-identity.md",
+      "sha256": "7101f8f4ce923dd799a021647dd6348becc2f25a209253e1612a879e1286a380",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "synthetic結果取得と実Hermes実行を区別。不明runは元key・境界で照合し、再submitしない。"
+    },
+    {
+      "path": "docs/generic-agent-async-design.md",
+      "sha256": "88f5941ebc472f40c3aabbd5b9f30e913eaf2d908fc120caa26d18d614e94dc1",
+      "role": "normative",
+      "review": "reviewed",
+      "summary": "元会話と結果の相関、受信owner承認、配送・表示・作業状態の独立を定める。未実装profile案を区別する。"
+    },
+    {
+      "path": "docs/hab-decisions.md",
+      "sha256": "f430cb74a08f4df8b1d0faee23512ed965f710005b8f309a04fb1927d2ef5912",
+      "role": "normative",
+      "review": "reviewed",
+      "summary": "採用・保留・未決を分け、Relay/Task/Adapter/認可の境界を記録する。設計採用は配備承認ではない。"
+    },
+    {
+      "path": "docs/hab-principles.md",
+      "sha256": "8f12dd94601035f2363832056288ee35a9e22afe1e1e012da832fcb1d4dd2b66",
+      "role": "normative",
+      "review": "reviewed",
+      "summary": "判断を各agentに残す。単一正本、最小権限、有限retry、未知結果の照合を根本原則とする。"
+    },
+    {
+      "path": "docs/hab-product-spec.md",
+      "sha256": "f682deebed88c9a5ccbdf2de2a08e67dc4257e33dd90b97b8f7e473ebadb60b5",
+      "role": "normative",
+      "review": "reviewed",
+      "summary": "異種agent通信を簡単にする。GUI/MCPは共通業務境界を使い、保存ACKを実行承認にしない。Kanbanは別アプリ。"
+    },
+    {
+      "path": "docs/hab-relay-integration.md",
+      "sha256": "c612f5ace2630235273ad221fe86f294298fc2e8b2c3e18f46c90c0efba8b790",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "合成native HTTPの17journey。登録・配送・回復の証拠は本番接続やG1全体の受入れではない。"
+    },
+    {
+      "path": "docs/hab-relay-spec.md",
+      "sha256": "3113d23984d4c3a3329a94f9816f83e7179251505d3834192063b62558f0a3dc",
+      "role": "normative",
+      "review": "reviewed",
+      "summary": "採用済み通信契約。独立Relay、durable配送、scope、固定intent、有限retry/retentionを定め、実行と分離する。"
+    },
+    {
+      "path": "docs/hab-roadmap.md",
+      "sha256": "be0acba3ecebf96351f04f9a84d56eebb866335020a5aa4e8bc995054101f8cd",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "部品実装、模擬試験、本人報告、本番確認を分け、変更に対応する文書更新責務を示す。"
+    },
+    {
+      "path": "docs/hab-roles.md",
+      "sha256": "580772a7e1a94cb47f7f7576a52683b94a2053c1d168b0879c939e42413c6844",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "担当目標と実接続を区別し、製品利用可能性からHubの実行権限を推定しない。"
+    },
+    {
+      "path": "docs/hab-security.md",
+      "sha256": "dd85d54fbaee3ffd554e32d521c298194711d9523b84a20c59bbda5a49d5e514",
+      "role": "normative",
+      "review": "reviewed",
+      "summary": "認証未設定はfail-closed。秘密と公開成果、hashと実効隔離、費用と実行承認を分ける。"
+    },
+    {
+      "path": "docs/hab-topology.md",
+      "sha256": "d914799e34d6a1d228529ff3ad8c56e5ac63a7b07ca31dc785fd240f0d5fdc59",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "図の線・色を証拠水準に対応させる。Markdown Mermaidを正本とし生成画像を二重管理しない。"
+    },
+    {
+      "path": "docs/hab-workflow.md",
+      "sha256": "c657ee9b07059d37b268062d8cdcdf0b4388eb3efe18186ebbb46c4611186e1b",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "固定Taskの受付から結果まで。不明実行ではslot/receiptを保持し、取消要求とremote停止を分ける。"
+    },
+    {
+      "path": "docs/hermes-connection.md",
+      "sha256": "06206b4f747e04d6811b31f41be645fb1dbc2c503653045f19d0806cb9d7437e",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "歴史的な固定Task Runs driver。新しい隔離証拠と安定admission receiptを要求する別契約。"
+    },
+    {
+      "path": "docs/hermes-import-boundary.md",
+      "sha256": "21aed702043c318bd2c310c6c9678de623772cf8006c62a4b2b6f26ace3dea61",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "固定inventory import境界。-I -Sと測定済み依存。EPERMはinconclusive、hash/import pinはOS sandboxではない。"
+    },
+    {
+      "path": "docs/implementation/generic-job-application.md",
+      "sha256": "d3605b4aec5a27cff2430a57700b54caacdeece3166b523ab02e5e55452dbf61",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "Task engineは1個。毎回現在bindingを確認し、公開投影をsanitizeして終了不明を維持する。"
+    },
+    {
+      "path": "docs/implementation/generic-nats-dispatch.md",
+      "sha256": "d64f8aca908880bc597ad2cc865870b86ee4c4b7f5311a6ab9a4e22326a50818",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "durable transport handleとruntime admissionを区別。受信と実行を分け、不明でcreateをblind replayしない。"
+    },
+    {
+      "path": "docs/implementation/generic-text-preview.md",
+      "sha256": "23dd648161476daac2663f0d0edf21124335958df7ec7534253fd3fad5623433",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "既存TaskServiceで製品非依存text実行。bindingはtrusted host由来、synthetic isolationは本番attestationではない。"
+    },
+    {
+      "path": "docs/inventory-end-to-end.md",
+      "sha256": "56f8c640130bcb0ad7e14ae79ed0ac455042ede8efccbd1849e7a6f2360d7762",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "通常runtimeと別の明示one-shot入口。固定scope・有限child・停止不明保持。syntheticはlive受入れではない。"
+    },
+    {
+      "path": "docs/inventory-one-shot.md",
+      "sha256": "07708b63d1e12a436a2c0d50a164c85a69dd28d541f540dde16b58c4d8a55045",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "provisioningと実行のlive承認は別。fresh Inspector、owned childだけ停止、不明shutdownの保持。"
+    },
+    {
+      "path": "docs/inventory-preparation.md",
+      "sha256": "c43c7583a74512255c363cde19b53988e4eec821630cdd44c5b1abdeb1252df4",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "read-only preflightをprovisioningより先に行う。EPERM/mode bits/preflightからruntime隔離を推定しない。"
+    },
+    {
+      "path": "docs/inventory-token-input.md",
+      "sha256": "28a434fe2bb7dc715cf08ddfe8db0474dd206b573a182f9f73cd08008f2a86e9",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "取得済みtokenのhidden入力のみ。新発行/grantなし。child終了はTask成功でなく、証拠を保持。"
+    },
+    {
+      "path": "docs/local-hermes-key.md",
+      "sha256": "659cf5b66357ceb890cc1d756c64e1ca95978dca065fb51d8b8abd7f2792dd0e",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "任意一回Runs key lifecycle。Bearer自身のTTL/scopeはなく、fingerprintは隔離証明ではない。stop_failedを保持。"
+    },
+    {
+      "path": "docs/local-integration.md",
+      "sha256": "095ab372112e3d63fb6be4c3dc96e2d869ab844a6104dfa295f0a06a40b1f86d",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "旧Task/Events/workerの注入可能な基盤。毎回認可、at-least-once outbox、未知run保持。fixtureは本番ではない。"
+    },
+    {
+      "path": "docs/local-mvp.md",
+      "sha256": "a1990a4a82c5e775301984b72e0a9c8de7bb780f14ef4d55badfc66d7170312b",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "15段階model-free合成demo。明示Task引受け、同じID、close/reopen、未解決gate保持。個体専有gateの古い文言は差異。"
+    },
+    {
+      "path": "docs/local-relay-host.md",
+      "sha256": "36452ca5c75cfeb4b36387a7695bcec92b22a30da29977a68a8664d3f7b9d03c",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "明示loopback起動、private DB、単一process owner。競合processを止めず、失敗で受理済み状態を削除しない。"
+    },
+    {
+      "path": "docs/local-relay-launchagent.md",
+      "sha256": "16beca8fbfcb2a2f71adbf98b51d63e2247d38f43fa728a3b51ed83e2ef42254",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "opt-in運用。固定release・絶対path・deny-all受入れ・自分のjobだけ停止。listener稼働はagent接続ではない。"
+    },
+    {
+      "path": "docs/local-relay-service.md",
+      "sha256": "678d07676887fdaa3575cfaa843ecf19d231dfca4115c54f4ed9bc11fc36e173",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "設定駆動の共通Relay。秘密自動探索/発行、製品分岐、model/受信loopなし。判断・受信タイミングは受信側。"
+    },
+    {
+      "path": "docs/managed-attachments.md",
+      "sha256": "71ce4472aba7eb38621e77765184b65b055040e827190128e883915ee28da0bc",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "upload/admission/保存receipt/実行を区別。storage coreはTask/製品/model SDKから独立。"
+    },
+    {
+      "path": "docs/manual-ping-runner.md",
+      "sha256": "386b164550d60f4234da61567a61c6b3ff5836a31952567766f7817a72ac11aa",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "専用scopeで有限の固定ping/pong診断を行う。不明な停止をcleanup成功にしない。"
+    },
+    {
+      "path": "docs/mcp-agent-discovery.md",
+      "sha256": "f38128e60939dc4162e81d20577ddc8176e741ccac7a9331e79663b0bde95867",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "任意read-only discovery。選択名義と実際に稼働するBotの証明を分け、未知を未知のまま返す。"
+    },
+    {
+      "path": "docs/migration-plan.md",
+      "sha256": "bfb99c4cea032bd133b26e0f6227a36c8de0f5ca0691e6aaac518841182b4ccc",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "SQLite/D1の同一契約と単一driver。適用済みmigrationを改変せず、hosted相互運用を別検証する。"
+    },
+    {
+      "path": "docs/mvp-acceptance.md",
+      "sha256": "e9aee0958b635495c9267e09042ef1128484a27af7de8f0bb2665ef50b6d9ea1",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "local合成実装とlive受入れを分離。無料条件、永続発行上限、明示identity/client policyを必要とする。"
+    },
+    {
+      "path": "docs/mvp-inventory.md",
+      "sha256": "2f5d815262d36c62eaee3fcb73cdc9aea8368534bbb077c2cb376dddd3948ad2",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "固定metadata-only Task。任意path/shell/個人データなし。候補なしを全機械に存在しないと推定しない。"
+    },
+    {
+      "path": "docs/persistent-mcp-auth.md",
+      "sha256": "6efcae470aa423b3942daee474015c262f4bb6fe88680afe2cd41adc140bb08f",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "常用参加承認と短命ATを分け、RelayはRTを持たない。更新でbindingや失効を戻さない。365日/30日は提案。"
+    },
+    {
+      "path": "docs/ping-discovery.md",
+      "sha256": "cbd6e0d3306ddb03bc898bc3b21c1f4face58ef74578fe0df73f01c9c1a84706",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "認証案内だけの非稼働mode。常にMCPを拒否し、勝手に運用modeへ昇格しない。"
+    },
+    {
+      "path": "docs/ping-pong-mvp.md",
+      "sha256": "032c1c2da80dda58e4aaa39d8acbec91b9d2fe106aa6febdab55656c0cfd548e",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "Hermes Taskと別の固定診断。HTTP受付から認証済み相関完了を推定しない。"
+    },
+    {
+      "path": "docs/profiles/async-text-v1.md",
+      "sha256": "f6b9902add6246ddb89769894be09d8f48f25d03a63fda8f952c4060b0a776ac",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "A2A/MCPのservice・binding・ID・認可を共有。submit-only replayで結果を漏らさず、取消は終了確認が必要。"
+    },
+    {
+      "path": "docs/receive-supervisor.md",
+      "sha256": "0ae13f1f65b94bf79ed50282cce877faf7b7777fd169d6a3e486f3b17937f661",
+      "role": "normative",
+      "review": "reviewed",
+      "summary": "model-free受信scheduler。owner取得・resume・login・Task引受け・返信・model起動をしない。"
+    },
+    {
+      "path": "docs/relay-agent-capacity.md",
+      "sha256": "205547fe9fb5658bb264cd0b90d51ed0dd1de6ed3729b38cfc841e2acfd05d18",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "件数・byte・予約容量を原子的に管理する。同一再送を新quotaより先に照合し、受理済みデータを追い出さない。"
+    },
+    {
+      "path": "docs/relay-auth-groups.md",
+      "sha256": "72b6db302257c2b19c8b0219fd82d3cbbbc3d08f8875678a35a4b4790d97a7f7",
+      "role": "normative",
+      "review": "reviewed",
+      "summary": "認証groupとアドレス選択を分離する採用判断。同groupの共有は許し、外国groupの名義・inboxを拒否する。"
+    },
+    {
+      "path": "docs/relay-fair-poll.md",
+      "sha256": "113d9c03a20a368c7e5218d901b55e1d78e69aa0247c4c22ba3aa120defc3d88",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "永続round-robinで配送選択の機会を公平にする。遅延SLOや実行公平性を保証しない。"
+    },
+    {
+      "path": "docs/relay-oauth-ingress.md",
+      "sha256": "5be6eff570a7d5ccf9b7969c40757efb42f65e7540b549cd1c005f31cdd0a248",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "共通5操作の任意入口。同じRegistry/Relayを使い、OAuthと登録/binding/grantを分け、製品実行を追加しない。"
+    },
+    {
+      "path": "docs/review-fixes.md",
+      "sha256": "bf561076e4772a6b4bb8a81a73a33aa3f03b6920825bf987c5e1b128a6061b3f",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "ACK付き非同期auditと有限admission。post-action audit失敗は既存commitの取消ではない。"
+    },
+    {
+      "path": "docs/security-audit-limits.md",
+      "sha256": "5d1163c4ce43bd9abe8360791a55987aba951f768b0db1b86a2a1daf5b48d12b",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "ingress/resource/logを有限にする。旧同期logging記述を明示的にsupersedeする。"
+    },
+    {
+      "path": "docs/sqlite-snapshot-bundle.md",
+      "sha256": "a9cbcb6f91a214283052d989d7fed1bfe0559bc1d0a528e340e675654ba7ce38",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "全writer lock下の固定DB profile。新しいoffline dirへrestoreし、現在権限と外部結果の照合を別途要求。"
+    },
+    {
+      "path": "docs/task-bridge.md",
+      "sha256": "de33807668de97a595cdd4c5bade9259b233e29f6a2a543b0a31547b97a282c6",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "Relay外の任意統合。ACK/引受け/Task admission/実行/terminalを分け、ACKで自動Taskを作らない。"
+    },
+    {
+      "path": "docs/testing/a2a-bounded-performance.md",
+      "sha256": "491c953e9e638999ece2f14c56ccd75acfd7ed44f75d8eeb17e0f9832edafbf3",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "5x5直列特性測定でSLO/capacityを主張しない。timing範囲と小sampleの限界、ACK時engine不変を明示。"
+    },
+    {
+      "path": "docs/testing/a2a-independent-results.md",
+      "sha256": "f15db86e069c4b76aee8db7e77a037c9976362a47c70de6c5f910aba1202ee02",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "歴史的固定route証拠。migrationは別gate。重複countとruntime SQL inventory漏れの是正履歴を残す。"
+    },
+    {
+      "path": "docs/testing/a2a-native-acceptance.md",
+      "sha256": "3c6699c21f7650a5521a219a3084f0770380fe5cc031b426b093b1a7820dda2f",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "exact-f19 SDK/Relay case表。独立pre-ACK観測、未実装placeholderは合格にせず、frozen hashを自動更新しない。"
+    },
+    {
+      "path": "docs/testing/a2a-p1-p3-scope.md",
+      "sha256": "2b0db770ab1362572d222b6e2bd698291e0a91727b659a81821492f5c5f59a57",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "固定connectivity受入れとmigrationを分離。配送/引受け/完了は別。generic bodyや実製品wake/GUI等はscope外。"
+    },
+    {
+      "path": "docs/testing/architecture.md",
+      "sha256": "9bfb2943327ed85ba5993a2499f918967068926595d438c959e9b16b6c5d577a",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "新DSLでなくbackend契約を検証。exit/TAP/必須groupを確認し、review判断を測定値と混同しない。"
+    },
+    {
+      "path": "docs/testing/decisions.tsv",
+      "sha256": "2be4fe9b9a6f3f852419aa54e880960512eba10ac2d3543892881013776a8784",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "歴史的設計・実験・失敗の判断履歴。時刻訂正や推測訂正も消さず、主張の証拠範囲を保つ。"
+    },
+    {
+      "path": "docs/testing/delivery-lab.md",
+      "sha256": "b7a3dd665d324e1c4df1bb3f68e3f2b8057e3f9ba945387785576d9c43532a14",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "歴史的exact-f19 runner。現在compositeを意図的に拒否。証拠保持、source identity、skipを合格にしない。"
+    },
+    {
+      "path": "docs/testing/p7-ci.yml.example",
+      "sha256": "7876c2b16c95db47d669a79236e030528d2880bf8c77e4f063b942b5e8f27756",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "P7のCI例。lockfile/版/必須test/evidence限定公開を記述する例で、稼働中workflowの証拠ではない。"
+    },
+    {
+      "path": "docs/testing/p7-independent-results.md",
+      "sha256": "25ae76471289cfe63069e1b11412c3ddfaac4ece60fa228d4716bc8f89d93037",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "歴史的local結果。logical passと本番採用BLOCKEDは別。model-free実brokerと閉じた完了証拠を必要とする。"
+    },
+    {
+      "path": "docs/testing/p7-lab.md",
+      "sha256": "a28be165454f1321e5012bcf1bbb0b04864d1e5db8b12afc90211041d3c7c34e",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "実A2A+JetStream compositeのsource/evidence。必須skip等はfail。独立pre-ACKとengine idle、同SSD restoreの限界。"
+    },
+    {
+      "path": "docs/testing/plan.md",
+      "sha256": "33e6ddeb27ddfd1d23abd275dae62658c6cd07eb20cee61bff92424a849ba767",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "歴史的scope/checklist。初期実装後に設計比較したという順序も記録する。"
+    },
+    {
+      "path": "docs/testing/publication.md",
+      "sha256": "903628ddffe87ad31a5addde227d6ebea2483e12a0003f99d83ec47023411341",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "current P7 CI/公開範囲。hosted成功は別証拠。zero skip/source drift、hybridと全方向NATSを分け、秘密を公開しない。"
+    },
+    {
+      "path": "docs/testing/results.md",
+      "sha256": "461ac64419e9007585ccb836819fce91252c8e6b2abb68bdfba7b974bea59900",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "固定commitの歴史的SQLite baseline。重なるcountを加算せず、失敗attemptを保持、実製品/物理障害は未検証。"
+    },
+    {
+      "path": "docs/testing/verified-nats-input.md",
+      "sha256": "041e9a53c4bc5579e03ca23f318443605f2337eb76c1e442e14f5059c3cd9275",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "検証済みbinary bytesのprivate引渡しのみ。候補versionを信用せず、broker実行やOS sandboxを主張しない。"
+    },
+    {
+      "path": "docs/testing/verified-nats-results.md",
+      "sha256": "2697b792b62a72f9fbbc44a5b06b82b04062a3a80010d509dfe77572b08bea7d",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "歴史的native入力引渡し結果。broker未起動、4platform pinは4platform実行ではない。途中snapshotを最終証拠にしない。"
+    },
+    {
+      "path": "docs/upload-journal.md",
+      "sha256": "ba5eeb546cbd667a3bdf5d37e490435d34126d24dcdbd3bb4399d2cd269c85b0",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "network前に固定intent/sourceを保存。leased単一操作と有限retry。finalizeは自動message submitではない。"
+    },
+    {
+      "path": "docs/writer-admission.md",
+      "sha256": "3b7e2a4b6e10045c1f8bee2b1eadb7b6f95c9770e26b890bfe4e36877fd9279e",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "検証済み個体単位の有限rate/fairness。待機中DB lockなし、認可再確認、実完了までactive slotを保持。"
+    },
+    {
+      "path": "packages/relay-nats/DESIGN.md",
+      "sha256": "9d314b356848e01d78ef65debc74c84e3ab40892d2519dc03c215dd789ee430c",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "同期HAB認可と非同期broker pump。backend変更でも元owner/TTL/dedupを維持。PubAckと保存ACK/実行を分ける。"
+    },
+    {
+      "path": "packages/relay-nats/OPERATIONS.md",
+      "sha256": "4b5e0040932f3a699179e922df0a6f6f7fc6afc4f141cdd83aa44ad6cbd8535c",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "private broker、有限容量、永続volume、複数store整合backup、元ownerを保つrollbackはhost責務。"
+    },
+    {
+      "path": "packages/relay-nats/README.md",
+      "sha256": "7f8d3a4d4d01e647ff9076492250be285089b6bde4a1302d7d8c35e00fcb6037",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "NATSはopt-in/pinned。package試験や起動は本番配備や完全restore証明ではない。"
+    },
+    {
+      "path": "src/hab/README.md",
+      "sha256": "ba66ac5767d6ad80dfe6e90faf6e816b36a32d1d15c5b3cec8e9c9c8fb9febe1",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "Registryと認可の合成。Relay coreはHABから独立し、現在guardをcommitまで保つ。名義と実Bot実行を分ける。"
+    },
+    {
+      "path": "src/relay/README.md",
+      "sha256": "20d831e06d0d8c2637ec042cdfae0f07dc98c34f4a0dd55b5f7589d026d815fd",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "durable body/dedup/stable ACKを先に保存するモデル非依存通信。inboxは実行queueではなく、sender intentは固定。"
+    },
+    {
+      "path": "test/p7/README.md",
+      "sha256": "1f7c43efe3499d2a0dd65b928f16258f2d6aae47d89cf4dd4c5344fc5302fd4a",
+      "role": "evidence",
+      "review": "reviewed",
+      "summary": "current/historical profileとsource pin。successorはcommitted blobと独立review由来。必須group欠落をskipしない。"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "HAB-001",
+      "title": "共通MCPと製品非依存の通信",
+      "statement": "Relay core/clientはTask engineや製品のモデル実行APIに依存せず、各agentの標準MCPから通信できる。",
+      "rationale": "配送のために受信製品の実行を中央へ移すことを防ぐ。",
+      "scope": "src/relayの静的module境界と合成MCP/HTTP通信",
+      "decision": "accepted",
+      "citations": [
+        {
+          "path": "docs/common-mcp-connection.md",
+          "start": 3,
+          "end": 6,
+          "excerpt_sha256": "d626b79bef5bf4a5047c57e235257fd57d0138712a4c02b86f286cf57e132e24"
+        },
+        {
+          "path": "docs/hab-relay-spec.md",
+          "start": 76,
+          "end": 97,
+          "excerpt_sha256": "cccb8d81e3e312da329dd3e35bb15e2e6be2b56db4e2646c5b7ecf9799dcacfd"
+        }
+      ],
+      "checks": [
+        "dependency-boundary",
+        "boundary-controls",
+        "mcp-durable-live"
+      ]
+    },
+    {
+      "id": "HAB-002",
+      "title": "保存・dedup・元ACK journalがACKより先",
+      "statement": "受信側は本文とdedup、再送用ACK要求を永続commitしてからACKし、応答消失時も元ACKを照合する。",
+      "rationale": "Relay本文解放後の消失や二重受信を防ぐ。",
+      "scope": "common SQLiteInbox/DurableReceiverとreal loopback MCP",
+      "decision": "accepted",
+      "citations": [
+        {
+          "path": "docs/common-mcp-connection.md",
+          "start": 47,
+          "end": 61,
+          "excerpt_sha256": "4d5ed1062acd3f565446f01ef828a53d33cdf99c0c5bc5a9bfa885c44b7075c4"
+        },
+        {
+          "path": "docs/hab-relay-spec.md",
+          "start": 263,
+          "end": 269,
+          "excerpt_sha256": "e21c51673bcdfb7e20b2266085d39999cecdb5b4d8472f928d51ff033982c1ad"
+        }
+      ],
+      "checks": [
+        "mcp-durable-live",
+        "durable-receive"
+      ]
+    },
+    {
+      "id": "HAB-003",
+      "title": "model-free定期受信",
+      "statement": "receive supervisorはpoll・保存・ACKだけを担い、判断・返信・Task引受け・model起動は受信側の別処理にする。",
+      "rationale": "継続通信にLLM起動やTask engineを必須としない。",
+      "scope": "合成waitを用いたReceiveSupervisorとdurable host",
+      "decision": "accepted",
+      "citations": [
+        {
+          "path": "docs/receive-supervisor.md",
+          "start": 5,
+          "end": 15,
+          "excerpt_sha256": "e91f4dbe29ba9b62ea3b72feb896bd295bd6dc46354630d3249f87fbedee7534"
+        },
+        {
+          "path": "docs/receive-supervisor.md",
+          "start": 36,
+          "end": 52,
+          "excerpt_sha256": "6dda566a6243c6d6123badcc0f0e2299bcaedbab61478cec88e492f1c4fef879"
+        }
+      ],
+      "checks": [
+        "model-free-supervisor"
+      ]
+    },
+    {
+      "id": "HAB-004",
+      "title": "通信許可と実行引受けの分離",
+      "statement": "ACKや本文を根拠にTaskを作らず、任意bridgeは別の明示accept/submitと認可を必要とする。",
+      "rationale": "普通のmessage配送を自動仕事実行へ昇格させない。",
+      "scope": "固定Task bridge/AdapterHostの合成storageとHTTP",
+      "decision": "accepted",
+      "citations": [
+        {
+          "path": "docs/task-bridge.md",
+          "start": 5,
+          "end": 17,
+          "excerpt_sha256": "69dd7cbf8aec734bad2b7ef2a7fbee0b1793c0832c4608a621e724df9979a100"
+        },
+        {
+          "path": "docs/hab-product-spec.md",
+          "start": 43,
+          "end": 47,
+          "excerpt_sha256": "f45d0bf2b5b3e7e161ef8d6d4b6458ffaf2b5f42b51cb608d007f9c067d5512a"
+        }
+      ],
+      "checks": [
+        "explicit-task-boundary"
+      ]
+    },
+    {
+      "id": "HAB-005",
+      "title": "実受信側に判断とowner承認を残す",
+      "statement": "外部本文・ROLE_USER・同group・送信者の承認を受信ownerの保護対象操作承認に代用しない。",
+      "rationale": "通信の認証がshell/個人データ/外部送信の包括権限になることを防ぐ。",
+      "scope": "実製品の実効tool/owner approval経路（未検証）",
+      "decision": "accepted",
+      "citations": [
+        {
+          "path": "docs/generic-agent-async-design.md",
+          "start": 75,
+          "end": 86,
+          "excerpt_sha256": "4a1a04c7ffe2a8e22319ebf30d583f130b46a18d5b1266c841bdcc8890856a6b"
+        },
+        {
+          "path": "docs/hab-principles.md",
+          "start": 7,
+          "end": 15,
+          "excerpt_sha256": "2da5374e2474b8ab60244c755d805a0d8e9e590e0a92c6224d0e245a2f080634"
+        }
+      ],
+      "checks": [
+        "real-recipient-policy"
+      ]
+    },
+    {
+      "id": "HAB-006",
+      "title": "現在の認証・group・名義scope",
+      "statement": "権限は検証済み主体と現在policyで決まり、引数の名前では得られない。同group共有とforeign-group拒否を区別する。",
+      "rationale": "認証・登録・Bot名・実Bot本人性を混同しない。",
+      "scope": "Registry/group opt-inと合成MCP/admin。旧個体専有文言のscopeは未整理。",
+      "decision": "accepted",
+      "citations": [
+        {
+          "path": "docs/relay-auth-groups.md",
+          "start": 23,
+          "end": 29,
+          "excerpt_sha256": "6b5fab493e89270fc3a6c88a77ecff14efe3df9ab5d2590293f9bf656aa310d0"
+        },
+        {
+          "path": "docs/relay-auth-groups.md",
+          "start": 52,
+          "end": 60,
+          "excerpt_sha256": "de1c63474e3bd887de80a489b8090fc45459ced47fcc3f9d9f67c66dc4dc5269"
+        },
+        {
+          "path": "docs/local-mvp.md",
+          "start": 97,
+          "end": 103,
+          "excerpt_sha256": "30fcb99d5c23b1f809cc214842c56fe07aec23c412e728498805de86c2ec5164"
+        }
+      ],
+      "checks": [
+        "current-authorization"
+      ]
+    },
+    {
+      "id": "HAB-007",
+      "title": "元intentと期限の維持",
+      "statement": "宛先ID/本文/message ID/初回期限を再送前に保存し、不明応答で別ID再送や期限延長をしない。",
+      "rationale": "at-least-once配送を二重依頼や別宛先転送にしない。",
+      "scope": "Relay contract/store/senderの合成故障注入",
+      "decision": "accepted",
+      "citations": [
+        {
+          "path": "docs/hab-relay-spec.md",
+          "start": 233,
+          "end": 239,
+          "excerpt_sha256": "dbec7255dab3e0892b40e1619e04baca1e3dd1fe101fad1f6bcc64398095f699"
+        },
+        {
+          "path": "docs/hab-relay-spec.md",
+          "start": 378,
+          "end": 386,
+          "excerpt_sha256": "29cd9ed9cb5008e6d1ddf2d2704c5301a8b71703a97d6d8e2d02476732b35d43"
+        },
+        {
+          "path": "docs/generic-agent-async-design.md",
+          "start": 141,
+          "end": 153,
+          "excerpt_sha256": "0270bad7c6869fcffda3a875478f9dce5512799427290ea4198b2a2ed8c9300e"
+        }
+      ],
+      "checks": [
+        "immutable-delivery"
+      ]
+    },
+    {
+      "id": "HAB-008",
+      "title": "配送・表示・作業・停止の証拠を分ける",
+      "statement": "保存ACKを既読/実行/完了にせず、workingや取消状態はそのscopeの確認済み証拠に対応させる。",
+      "rationale": "transport handleやcoordinator開始を受信runtime処理の証拠へ誤昇格しない。",
+      "scope": "WORKING proposalとcurrent projectionの意味差異は未解決。",
+      "decision": "unresolved",
+      "citations": [
+        {
+          "path": "docs/generic-agent-async-design.md",
+          "start": 94,
+          "end": 107,
+          "excerpt_sha256": "7a0297b5dbb01fa34e671a84ba5bf7272fb60f4cca231d04b9057772d2c247aa"
+        },
+        {
+          "path": "docs/implementation/generic-nats-dispatch.md",
+          "start": 3,
+          "end": 11,
+          "excerpt_sha256": "10c619f0f764a11f2e0bfd549428177629cf52307246ad6b1bb515e1f97a63de"
+        },
+        {
+          "path": "docs/profiles/async-text-v1.md",
+          "start": 38,
+          "end": 42,
+          "excerpt_sha256": "cc3bc1c9d104fcfad30b17070369f47c6b9b4dda1db613a6528f9a616c12cdfa"
+        }
+      ],
+      "checks": [
+        "state-semantics"
+      ]
+    },
+    {
+      "id": "HAB-009",
+      "title": "未知結果と未終了実行の保守的保持",
+      "statement": "timeout/local abort/cancel要求でremote停止や副作用ゼロを推定せず、receipt/slot/元identityを保持し照合する。",
+      "rationale": "応答消失からの二重副作用と不正slot解放を防ぐ。",
+      "scope": "AdapterHost/bridge/senderの合成境界",
+      "decision": "accepted",
+      "citations": [
+        {
+          "path": "docs/adapter-host.md",
+          "start": 51,
+          "end": 59,
+          "excerpt_sha256": "e939444c596933a445b592fd0e8609abc0698d57a35f4bb059c7aafa5c0101b4"
+        },
+        {
+          "path": "docs/hab-workflow.md",
+          "start": 42,
+          "end": 48,
+          "excerpt_sha256": "e41d2929de7a045d7a8486e5e8b1389693b6e00100d8f18ea3ef4aee6aa38aa3"
+        },
+        {
+          "path": "docs/generic-agent-async-design.md",
+          "start": 157,
+          "end": 165,
+          "excerpt_sha256": "1b15d5e5789eadad6e53c65e7ee0ff1e2f168f4709473d94e02f5906ff96af76"
+        }
+      ],
+      "checks": [
+        "explicit-task-boundary",
+        "immutable-delivery"
+      ]
+    },
+    {
+      "id": "HAB-010",
+      "title": "有限返信と連鎖抑止",
+      "statement": "返信は受信側の明示判断と永続intent/budgetに従い、ACK/結果/通知から新Taskや無制限返信を自動生成しない。",
+      "rationale": "別ID/threadによるloop/費用増殖を防ぐ。",
+      "scope": "回答intentとreply budgetの合成呼出し。全実adapter入口は未確認。",
+      "decision": "accepted",
+      "citations": [
+        {
+          "path": "docs/adapter-reply-budget.md",
+          "start": 15,
+          "end": 36,
+          "excerpt_sha256": "5c432e0018a401be7a021a72666b5780c9dcc127b20285dcf25b0fa51d716380"
+        },
+        {
+          "path": "docs/answer-intents.md",
+          "start": 20,
+          "end": 34,
+          "excerpt_sha256": "85f04de1deb132ef563ef6e3f65a5bd53bcd3a3cdb6d9c7e5927bb36961a609e"
+        },
+        {
+          "path": "docs/answer-intents.md",
+          "start": 46,
+          "end": 46,
+          "excerpt_sha256": "93dfb2fd9f24cf29df1f54ee9e4bdedd5dec79c18cfd9158f96e0cba3ea457b6"
+        }
+      ],
+      "checks": [
+        "bounded-replies",
+        "explicit-task-boundary"
+      ]
+    },
+    {
+      "id": "HAB-011",
+      "title": "添付の検証と受信durability",
+      "statement": "添付はboundedな全長/digest確認を終えてからbody/ACKを保存し、server削除とreceiver copy管理を分ける。",
+      "rationale": "不完全byteや未検証contentで保存ACKを返さない。",
+      "scope": "任意添付layerの合成SQLite/checkpoint",
+      "decision": "accepted",
+      "citations": [
+        {
+          "path": "docs/attachment-inbox.md",
+          "start": 17,
+          "end": 35,
+          "excerpt_sha256": "efb468ef6b83ea763f1e0899381e9a2cb2b26ccc2166c0c0dac2da7ccf883756"
+        },
+        {
+          "path": "docs/attachment-receiver.md",
+          "start": 14,
+          "end": 36,
+          "excerpt_sha256": "0e333ac762c5bc29b7cf17702a4cf345b956bb7f55e378819f0aa8003887c909"
+        }
+      ],
+      "checks": [
+        "attachment-integrity"
+      ]
+    },
+    {
+      "id": "HAB-012",
+      "title": "有限容量と公平性の限定",
+      "statement": "宣言byteとrecordを原子的に予約し、受理済み状態を追い出さず有限retry/選択機会/slotを管理する。",
+      "rationale": "過負荷から権限緩和・データ喪失・無制限workを起こさない。",
+      "scope": "同一policy下の合成capacity/fair-poll/writer admission。SLOは対象外。",
+      "decision": "accepted",
+      "citations": [
+        {
+          "path": "docs/attachment-capacity.md",
+          "start": 12,
+          "end": 24,
+          "excerpt_sha256": "bf0c77ae5bc3695050807fd0faf13a2e7835c324435cdcda8e35f388355826f4"
+        },
+        {
+          "path": "docs/relay-agent-capacity.md",
+          "start": 11,
+          "end": 25,
+          "excerpt_sha256": "8e590c3ba72c39a3b2da0f00d8805be10db4d8d7f7d0db2f20d9b245135872e4"
+        },
+        {
+          "path": "docs/writer-admission.md",
+          "start": 17,
+          "end": 31,
+          "excerpt_sha256": "ef010d6e3b828968590ae7aa76752c3bcebb466340686cea1a9ff0cd3853ebe3"
+        }
+      ],
+      "checks": [
+        "attachment-integrity",
+        "capacity-fairness"
+      ]
+    },
+    {
+      "id": "HAB-013",
+      "title": "正本と復旧receiptを分ける",
+      "statement": "単一Task正本とtransactional mutation/audit/outboxを維持し、通信・Mac journalを第二Task engineにしない。",
+      "rationale": "不整合な重複state machineと権限の二重管理を防ぐ。",
+      "scope": "既存Task bridge/共通TaskServiceの合成integration",
+      "decision": "accepted",
+      "citations": [
+        {
+          "path": "docs/architecture.md",
+          "start": 17,
+          "end": 21,
+          "excerpt_sha256": "efb4756308267921e73aeeefbff5aec3fe944ce30741db22f06540dc9cebc9b3"
+        },
+        {
+          "path": "docs/implementation/generic-job-application.md",
+          "start": 3,
+          "end": 9,
+          "excerpt_sha256": "5cfa8d4ea5664834ea0e8372f7efc5f47b5f636e4257741a77c457b5eff3997f"
+        }
+      ],
+      "checks": [
+        "shared-application",
+        "explicit-task-boundary"
+      ]
+    },
+    {
+      "id": "HAB-014",
+      "title": "論理snapshotと権限の分離",
+      "statement": "snapshotは明示した完全profileとwriter lockで作り、fresh offline restore後も現在権限・外部結果の照合を要する。",
+      "rationale": "古いbackupで承認や副作用を未実行へ巻き戻さない。",
+      "scope": "helperの限定profileによる論理snapshot/restore",
+      "decision": "accepted",
+      "citations": [
+        {
+          "path": "docs/sqlite-snapshot-bundle.md",
+          "start": 7,
+          "end": 17,
+          "excerpt_sha256": "2fb63a79c9cd37b8acf6778b5b2d4c88c3c246d0f60a1b78f5c8c53f0d0b1ed9"
+        },
+        {
+          "path": "docs/sqlite-snapshot-bundle.md",
+          "start": 33,
+          "end": 43,
+          "excerpt_sha256": "15bbf17ce0990811ec72adb028e216f8ae32d0e7f040cf631ee387c3a5a9f493"
+        }
+      ],
+      "checks": [
+        "logical-snapshot"
+      ]
+    },
+    {
+      "id": "HAB-015",
+      "title": "crashと実運用復旧は別証拠",
+      "statement": "clean close/reopenをkill-9/電断/実認証復元/別故障domain restoreの証明として報告しない。",
+      "rationale": "検証範囲を越えた耐障害性の主張を防ぐ。",
+      "scope": "crash/実運用復旧は未実行。既存feature mapの過大claimを記録。",
+      "decision": "accepted",
+      "citations": [
+        {
+          "path": "docs/testing/p7-lab.md",
+          "start": 38,
+          "end": 46,
+          "excerpt_sha256": "2cdd5bb3c5df43d09b887b34629d2c733774b6348cf3fdcce1f27cd0b2ddb80e"
+        },
+        {
+          "path": ".claude/skills/verify-hab/features/restart-durability.md",
+          "start": 25,
+          "end": 29,
+          "excerpt_sha256": "7a1b5f5aa8550ffb2362f2ca86b779c0891a363a3fce77e478650503a75cd8d9"
+        }
+      ],
+      "checks": [
+        "crash-and-production-recovery"
+      ]
+    },
+    {
+      "id": "HAB-016",
+      "title": "共通application serviceと入口同等性",
+      "statement": "同じ主体・権限・対象・入力は入口に依存せず同じ認可/冪等/状態を使う。GUIの直接DB別経路を作らない。",
+      "rationale": "UIごとの実行権限や状態の分岐を防ぐ。",
+      "scope": "A2A/MCP合成境界は自動確認。GUIと全入口同等性は未検証。",
+      "decision": "accepted",
+      "citations": [
+        {
+          "path": "docs/hab-product-spec.md",
+          "start": 11,
+          "end": 17,
+          "excerpt_sha256": "c7fde120184bedef763e92d8bdeb7f83e4663067011037275d52c0515a17669c"
+        },
+        {
+          "path": "docs/profiles/async-text-v1.md",
+          "start": 28,
+          "end": 38,
+          "excerpt_sha256": "bc5289170c28038b949ae6e8292fc6cb1da5e909ede36b3487e021692c60e373"
+        }
+      ],
+      "checks": [
+        "shared-application",
+        "full-surface-parity"
+      ]
+    },
+    {
+      "id": "HAB-017",
+      "title": "証拠範囲と配備・費用の分離",
+      "statement": "設計採用/source成功/local fixtureを本番接続・owner承認・課金・常駐・公開成功へ昇格しない。",
+      "rationale": "利用者が未確認の接続能力や費用を信頼してしまうことを防ぐ。",
+      "scope": "実接続/本番/費用/常駐はこの適用の対象外で未検証。",
+      "decision": "accepted",
+      "citations": [
+        {
+          "path": "docs/hab-decisions.md",
+          "start": 5,
+          "end": 5,
+          "excerpt_sha256": "615ccb2d0714688eeca2ea481137592f33f4e8af5a7aa9c20fe22aa1314b362c"
+        },
+        {
+          "path": "docs/common-mcp-connection.md",
+          "start": 106,
+          "end": 122,
+          "excerpt_sha256": "16dc32a64472a692f306823e276d22cf0235e975de6e235d05daeb8390643826"
+        },
+        {
+          "path": "docs/hab-security.md",
+          "start": 35,
+          "end": 37,
+          "excerpt_sha256": "df39015fb453f15c891919b7dd9b4d56bb9ab1c56bfe6786162b340c0fa354a1"
+        }
+      ],
+      "checks": [
+        "deployment-and-cost"
+      ]
+    },
+    {
+      "id": "HAB-018",
+      "title": "図の単一正本",
+      "statement": "Markdown Mermaidを正本とし、生成画像とmanifestを一致させる。",
+      "rationale": "図ごとの独立管理による設計statusの分岐を防ぐ。",
+      "scope": "既存source/image manifest整合性",
+      "decision": "accepted",
+      "citations": [
+        {
+          "path": "docs/hab-topology.md",
+          "start": 5,
+          "end": 5,
+          "excerpt_sha256": "86d25edffaf839315178a9e35c61e17bdf58f850b78331d8c52cad2be85572c2"
+        },
+        {
+          "path": "docs/hab-topology.md",
+          "start": 65,
+          "end": 75,
+          "excerpt_sha256": "a98835f9f2caffefc37e9663764976dcd2852095e515289f46b6a47d9e2c3ca8"
+        }
+      ],
+      "checks": [
+        "diagram-source"
+      ]
+    },
+    {
+      "id": "HAB-019",
+      "title": "受信owner承認profileの将来拡張",
+      "statement": "受信owner承認は独立した認証経路・操作hash・期限・現在権限に結び付ける。",
+      "rationale": "送信者へowner承認を委譲せず古い承認の再利用を防ぐ。",
+      "scope": "未実装HAB profile案。現在実装済みとは扱わない。",
+      "decision": "proposed",
+      "citations": [
+        {
+          "path": "docs/generic-agent-async-design.md",
+          "start": 102,
+          "end": 117,
+          "excerpt_sha256": "fbb7d831404b2304830c19dd658181f35eb8d06c815061080b2b9aa0952b32a0"
+        },
+        {
+          "path": "docs/generic-agent-async-design.md",
+          "start": 226,
+          "end": 231,
+          "excerpt_sha256": "65538f3f0ff3c23697b91b2207e5c6ad0f611aaa621a3453ab7249bc58309570"
+        }
+      ],
+      "checks": [
+        "real-recipient-policy"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "dependency-boundary",
+      "kind": "command",
+      "tier": "static",
+      "argv": [
+        "node",
+        "{bundle}/checks/communication-boundary.mjs",
+        "{target}"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 30,
+      "protocol": "exit",
+      "proves": "全src/relay TSからのAST module dependencyを推移的に確認し、HAB/Task/製品/model SDKへの依存を拒否。",
+      "limitations": "literal import/export/require/import typeを確認する静的scope。reflection、実行時能力、npm内部依存は対象外。"
+    },
+    {
+      "id": "boundary-controls",
+      "kind": "command",
+      "tier": "static",
+      "argv": [
+        "node",
+        "{bundle}/checks/communication-boundary.mjs",
+        "{target}",
+        "--self-test"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 30,
+      "protocol": "exit",
+      "proves": "直接・間接の禁じた依存、製品SDK、computed import・import equalsの6負例を拒否し、comment/stringの製品名を誤検出しない。",
+      "limitations": "制御されたAST fixture。実製品動作の証明ではない。"
+    },
+    {
+      "id": "mcp-durable-live",
+      "kind": "command",
+      "tier": "live",
+      "argv": [
+        "node",
+        "{bundle}/checks/mcp-durable-roundtrip.mjs",
+        "{target}",
+        "{evidence}/mcp-live"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 45,
+      "protocol": "exit",
+      "proves": "real MCP/HTTPでresolve/submit/同ID再送/pollを行い、別SQLite接続でbodyと元ACK journal commitを確認してからACK。sender status/reopen/cleanup証拠を残す。",
+      "limitations": "合成identityと一時SQLite。実製品・本番認証・model/tool承認・物理電断の証明ではない。既存verify-hab scaffoldを使用。Task不生成の包括証明はこのhelperにない。"
+    },
+    {
+      "id": "durable-receive",
+      "kind": "command",
+      "tier": "integration",
+      "argv": [
+        "node",
+        "--test",
+        "--test-reporter=tap",
+        "test/relay-receiver.test.js",
+        "test/relay-mcp-client-http.test.js"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 180,
+      "protocol": "node-tap",
+      "proves": "保存前ACKゼロ、保存後ACK、ACK応答消失と同一ACK復旧、受信dedupを実storageとHTTPで確認。",
+      "limitations": "合成identityと一時SQLite。実製品・本番認証・model/tool承認・物理電断の証明ではない。"
+    },
+    {
+      "id": "model-free-supervisor",
+      "kind": "command",
+      "tier": "integration",
+      "argv": [
+        "node",
+        "--test",
+        "--test-reporter=tap",
+        "test/receive-supervisor.test.js"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 180,
+      "protocol": "node-tap",
+      "proves": "有限schedulerのreceive-only操作列、reopen後保持、ACK retry優先、Task生成ゼロを確認。",
+      "limitations": "合成identityと一時SQLite。実製品・本番認証・model/tool承認・物理電断の証明ではない。時計/waitは合成。実常駐schedulerと製品wakeは未確認。"
+    },
+    {
+      "id": "explicit-task-boundary",
+      "kind": "command",
+      "tier": "integration",
+      "argv": [
+        "node",
+        "--test",
+        "--test-reporter=tap",
+        "test/task-bridge.test.js",
+        "test/adapter-host.test.js"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 180,
+      "protocol": "node-tap",
+      "proves": "ACKではTaskを作らず、明示accept/submitと別認可を必要とする。停止/失効/未終了RPCを確認。",
+      "limitations": "合成identityと一時SQLite。実製品・本番認証・model/tool承認・物理電断の証明ではない。"
+    },
+    {
+      "id": "current-authorization",
+      "kind": "command",
+      "tier": "integration",
+      "argv": [
+        "node",
+        "--test",
+        "--test-reporter=tap",
+        "test/relay-mcp.test.js",
+        "test/hab-auth-groups.test.js",
+        "test/local-relay-admin.test.js"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 180,
+      "protocol": "node-tap",
+      "proves": "無認証/越境名義/foreign inbox/失効を拒否。同group共有modeとdurable reply roundtripを確認。",
+      "limitations": "合成identityと一時SQLite。実製品・本番認証・model/tool承認・物理電断の証明ではない。group名義は特定Bot実行本人性の証明ではない。CLI stderr完全一致のためExperimentalWarning種別全体を明示抑制（SQLiteだけの抑制ではない）。初回未抑制runの失敗は保持。",
+      "env": {
+        "NODE_OPTIONS": "--disable-warning=ExperimentalWarning"
+      }
+    },
+    {
+      "id": "immutable-delivery",
+      "kind": "command",
+      "tier": "integration",
+      "argv": [
+        "node",
+        "--test",
+        "--test-reporter=tap",
+        "test/relay-contract.test.js",
+        "test/relay-store.test.js",
+        "test/relay-sender.test.js"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 180,
+      "protocol": "node-tap",
+      "proves": "元ID/本文/宛先/期限の固定、同一再送、変更conflict、有限retryと不明状態保持を確認。",
+      "limitations": "合成identityと一時SQLite。実製品・本番認証・model/tool承認・物理電断の証明ではない。"
+    },
+    {
+      "id": "bounded-replies",
+      "kind": "command",
+      "tier": "integration",
+      "argv": [
+        "node",
+        "--test",
+        "--test-reporter=tap",
+        "test/adapter-reply-budget.test.js",
+        "test/answer-intents.test.js"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 180,
+      "protocol": "node-tap",
+      "proves": "回答intent、元要求/thread/個体budget、未知送信での保守的予約と重複防止を確認。",
+      "limitations": "合成identityと一時SQLite。実製品・本番認証・model/tool承認・物理電断の証明ではない。全ての実adapter入口への配線は未検証。"
+    },
+    {
+      "id": "attachment-integrity",
+      "kind": "command",
+      "tier": "integration",
+      "argv": [
+        "node",
+        "--test",
+        "--test-reporter=tap",
+        "test/relay-attachment-delivery.test.js",
+        "test/relay-attachment-inbox.test.js",
+        "test/relay-attachment-capacity.test.js"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 180,
+      "protocol": "node-tap",
+      "proves": "添付全長/digest、保存後ACK、chunk/checkpointと宣言容量の有限管理を確認。",
+      "limitations": "合成identityと一時SQLite。実製品・本番認証・model/tool承認・物理電断の証明ではない。物理消去、backup中の削除は対象外。"
+    },
+    {
+      "id": "capacity-fairness",
+      "kind": "command",
+      "tier": "integration",
+      "argv": [
+        "node",
+        "--test",
+        "--test-reporter=tap",
+        "test/relay-agent-capacity.test.js",
+        "test/relay-fair-poll.test.js",
+        "test/relay-writer-admission.test.js"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 180,
+      "protocol": "node-tap",
+      "proves": "有限capacityと配送選択機会、元quotaと未終了slotの保持を確認。",
+      "limitations": "合成identityと一時SQLite。実製品・本番認証・model/tool承認・物理電断の証明ではない。end-to-end latency SLOやcross-process rateを保証しない。"
+    },
+    {
+      "id": "logical-snapshot",
+      "kind": "command",
+      "tier": "integration",
+      "argv": [
+        "node",
+        "--test",
+        "--test-reporter=tap",
+        "test/relay-snapshot-bundle.test.js"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 180,
+      "protocol": "node-tap",
+      "proves": "明示profileの整合snapshot/fresh offline restoreと不完全profile拒否を確認。",
+      "limitations": "合成identityと一時SQLite。実製品・本番認証・model/tool承認・物理電断の証明ではない。Registry/Task/権限全体restore、物理別故障domain、kill-9を含まない。"
+    },
+    {
+      "id": "shared-application",
+      "kind": "command",
+      "tier": "integration",
+      "argv": [
+        "node",
+        "--test",
+        "--test-reporter=tap",
+        "test/generic-entrances.test.js"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 180,
+      "protocol": "node-tap",
+      "proves": "A2A/MCPが共通service/認可/状態を使いcross-entry結果照会できることを確認。",
+      "limitations": "合成identityと一時SQLite。実製品・本番認証・model/tool承認・物理電断の証明ではない。GUI mutation parity、実製品、NATS brokerは含まない。"
+    },
+    {
+      "id": "diagram-source",
+      "kind": "command",
+      "tier": "static",
+      "argv": [
+        "node",
+        "docs/diagrams/render-mermaid.mjs",
+        "--check"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 15,
+      "protocol": "exit",
+      "proves": "Markdown Mermaidと生成画像manifestのdigest一致。",
+      "limitations": "図の意味や新しいrendererでの再描画の証明ではない。"
+    },
+    {
+      "id": "real-recipient-policy",
+      "kind": "manual",
+      "tier": "manual",
+      "proves": "実受信agentに判断・拒否・owner承認を残す。",
+      "limitations": "未実行。自動checkから推測しない。CLIは常にunverifiedを返す。",
+      "instructions": "実製品・版・実効tool経路・owner identityを固定し、外部本文によるfile/shell/plugin/subagent/送信の権限昇格がゼロである副作用を観測する。現時点では実行しない。"
+    },
+    {
+      "id": "state-semantics",
+      "kind": "manual",
+      "tier": "manual",
+      "proves": "保存ACK/working/完了/取消の証拠を分ける。",
+      "limitations": "未実行。自動checkから推測しない。CLIは常にunverifiedを返す。",
+      "instructions": "WORKINGのproposalとcurrent coordinator projectionの優先順位・scopeを明示決定し、runtime未受理/ACK-only/unknown/cancel要求でUI/APIが処理開始や停止確定を誤表示しないことを検証する。"
+    },
+    {
+      "id": "crash-and-production-recovery",
+      "kind": "manual",
+      "tier": "manual",
+      "proves": "crash/power-loss/実認証復旧を正常reopenと区別する。",
+      "limitations": "未実行。自動checkから推測しない。CLIは常にunverifiedを返す。",
+      "instructions": "合成close/reopenとは別のowned subprocess kill-9、認可復元、backup rollback、別故障domain restoreを設計し、事前/事後状態と実行副作用を観測する。本runでは未実行。"
+    },
+    {
+      "id": "deployment-and-cost",
+      "kind": "manual",
+      "tier": "manual",
+      "proves": "実接続・常駐・費用・公開は独立したscopeである。",
+      "limitations": "未実行。自動checkから推測しない。CLIは常にunverifiedを返す。",
+      "instructions": "対象製品の正式API/版、認証/費用条件、停止/失効、常駐受信を承認済み範囲で確認する。文書・local test成功から推定しない。本runで接続しない。"
+    },
+    {
+      "id": "full-surface-parity",
+      "kind": "manual",
+      "tier": "manual",
+      "proves": "GUIを含む全公開入口の同じ主体・対象・入力の業務境界。",
+      "limitations": "未実行。自動checkから推測しない。CLIは常にunverifiedを返す。",
+      "instructions": "GUI mutationと各公開入口が実装された時点で同じ認可/冪等/状態をlive比較する。既存MCP/A2A合成proofで代用しない。"
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "C-STATE",
+      "status": "open",
+      "requirements": [
+        "HAB-008"
+      ],
+      "question": "generic-agent-async-design:107/122はrecipient処理開始、generic-nats-dispatch:7とcurrent APIはcoordinator開始。前者は未実装profile案。どのprofile/scopeでどの意味を公開するかは明示決定が必要。"
+    },
+    {
+      "id": "C-IDENTITY",
+      "status": "open",
+      "requirements": [
+        "HAB-006"
+      ],
+      "question": "local-mvp:101/local-relay-host:56の個体専有gateと、relay-auth-groups:52-60の採用済みgroup共有の適用scopeを文書上で整理する必要がある。共有group内のBot本人性は推定しない。"
+    },
+    {
+      "id": "C-ACK-PROOF",
+      "status": "open",
+      "requirements": [
+        "HAB-002"
+      ],
+      "question": "既存verify-hab/receive-ack:24-33とSKILLのraw poll→ACKはreceiver commitを観測しない。新しいdurable-live/helperはこのgapを検証するがHAB側の既存recipeはこのsessionで編集していない。"
+    },
+    {
+      "id": "C-CRASH-CLAIM",
+      "status": "open",
+      "requirements": [
+        "HAB-015"
+      ],
+      "question": "既存restart-durability:29はkill-9をtest:hab-integrationの範囲とするが、選択testのjourney.restartは同processで正常listener/DB close/reopen。crash proofのsourceとの不一致が残る。"
+    },
+    {
+      "id": "C-STATUS",
+      "status": "open",
+      "requirements": [
+        "HAB-013"
+      ],
+      "question": "architecture:7/55などのcurrent固定Task/Relay未実装という記載と後発opt-in Relay/generic実装の時点・subsystemを明示整理する必要がある。古いscopeの設計まで自動廃止しない。"
+    }
+  ]
+}
