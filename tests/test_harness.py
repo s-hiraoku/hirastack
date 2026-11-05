@@ -193,6 +193,16 @@ class HarnessTests(unittest.TestCase):
         self.assertEqual(report["overall"], "incomplete")
         self.assertNotEqual(report["verification_inputs_before"], report["verification_inputs_after"])
 
+    def test_outputs_in_evidence_under_bundle_are_not_helpers(self):
+        # Evidence placed under the contract directory: build outputs written there must not
+        # look like a changed helper, while real helpers beside it are still pinned.
+        bundle = self.base
+        (bundle / "helper.py").write_text("import pathlib, sys; pathlib.Path(sys.argv[1]).mkdir(parents=True)\n")
+        self.check["argv"] = [sys.executable, "{bundle}/helper.py", "{evidence}/build"]
+        report = run(self.spec, self.root, self.base / "evidence", True, "spec-hash", bundle)
+        self.assertEqual(report["checks"][0]["status"], "pass")
+        self.assertEqual(list(report["checks"][0]["bundle_inputs_before"]), [str(bundle / "helper.py")])
+
     def test_citation_hash_uses_original_crlf_bytes(self):
         data = b"# Purpose\r\nPersist before ACK.\r\n"
         (self.root / "DESIGN.md").write_bytes(data)
@@ -237,6 +247,163 @@ class HarnessTests(unittest.TestCase):
             out = self.base / ("python-" + summary.replace(" ", "-").replace("=", "-") + str(total))
             report = run(self.spec, self.root, out, True, "spec-hash")
             self.assertNotEqual(report["checks"][0]["status"], "pass")
+
+
+WRITE = "import pathlib, sys; p = pathlib.Path(sys.argv[1]); p.parent.mkdir(parents=True, exist_ok=True); p.write_text(sys.argv[2])"
+
+
+def junit(*cases, suite_error=False):
+    body = "".join(f'<testcase name="c{i}">{inner}</testcase>' for i, inner in enumerate(cases))
+    error = '<error message="collection failed"/>' if suite_error else ""
+    return f'<?xml version="1.0"?><testsuites><testsuite name="s" tests="{len(cases)}">{error}{body}</testsuite></testsuites>'
+
+
+def jest(statuses, total=None, suite_status=None, success=None):
+    failed = statuses.count("failed")
+    data = {
+        "numTotalTests": len(statuses) if total is None else total,
+        "numFailedTests": failed,
+        "success": (failed == 0) if success is None else success,
+        "testResults": [{"status": suite_status or ("failed" if failed else "passed"), "assertionResults": [{"status": s} for s in statuses]}],
+    }
+    return json.dumps(data)
+
+
+def go_events(*events):
+    return "\n".join(json.dumps(e) for e in events)
+
+
+class ProtocolTests(unittest.TestCase):
+    setUp = HarnessTests.setUp
+    git = HarnessTests.git
+    verify = HarnessTests.verify
+
+    def report(self, protocol, path, payload):
+        self.spec["checks"][0].update(protocol=protocol, report="{evidence}/" + path, argv=[sys.executable, "-c", WRITE, "{evidence}/" + path, payload])
+        return self.verify()["checks"][0]
+
+    def stdout(self, protocol, text):
+        self.spec["checks"][0].update(protocol=protocol, argv=[sys.executable, "-c", "import sys; print(sys.argv[1])", text])
+        return self.verify()["checks"][0]
+
+    # JUnit XML: Maven/Gradle, pytest --junitxml, PHPUnit --log-junit, Vitest/Jest junit reporters.
+    def test_junit_counts_testcases(self):
+        result = self.report("junit-xml", "junit.xml", junit("", ""))
+        self.assertEqual((result["status"], result["passed_tests"]), ("pass", 2))
+
+    def test_junit_failure_with_exit_zero_fails(self):
+        self.assertEqual(self.report("junit-xml", "junit.xml", junit("", '<failure message="x"/>'))["status"], "fail")
+
+    def test_junit_error_case_fails(self):
+        self.assertEqual(self.report("junit-xml", "junit.xml", junit("", '<error message="x"/>'))["status"], "fail")
+
+    def test_junit_suite_level_error_fails(self):
+        self.assertEqual(self.report("junit-xml", "junit.xml", junit("", suite_error=True))["status"], "fail")
+
+    def test_junit_skip_is_unverified(self):
+        self.assertEqual(self.report("junit-xml", "junit.xml", junit("", "<skipped/>"))["status"], "unverified")
+
+    def test_junit_without_testcases_is_blocked(self):
+        self.assertEqual(self.report("junit-xml", "junit.xml", junit())["status"], "blocked")
+
+    def test_junit_report_directory_is_summed(self):
+        write_two = "import pathlib, sys; d = pathlib.Path(sys.argv[1]); d.mkdir(parents=True); [(d / f'TEST-{i}.xml').write_text(sys.argv[2]) for i in range(2)]"
+        self.spec["checks"][0].update(protocol="junit-xml", report="{evidence}/reports", argv=[sys.executable, "-c", write_two, "{evidence}/reports", junit("", "")])
+        self.assertEqual(self.verify()["checks"][0]["passed_tests"], 4)
+
+    def test_missing_report_is_blocked(self):
+        self.spec["checks"][0].update(protocol="junit-xml", report="{evidence}/junit.xml")
+        self.assertEqual(self.verify()["checks"][0]["status"], "blocked")
+
+    def test_malformed_report_is_blocked(self):
+        self.assertEqual(self.report("junit-xml", "junit.xml", "<testsuite>")["status"], "blocked")
+
+    def test_report_must_live_in_fresh_evidence(self):
+        self.spec["checks"][0].update(protocol="junit-xml", report="reports/junit.xml")
+        with self.assertRaises(Invalid):
+            validate(self.spec, self.root)
+        self.spec["checks"][0]["report"] = "{evidence}/../junit.xml"
+        with self.assertRaises(Invalid):
+            validate(self.spec, self.root)
+
+    def test_report_requires_a_report_protocol(self):
+        self.spec["checks"][0].update(protocol="exit", report="{evidence}/junit.xml")
+        with self.assertRaises(Invalid):
+            validate(self.spec, self.root)
+        self.spec["checks"][0].update(protocol="junit-xml")
+        del self.spec["checks"][0]["report"]
+        with self.assertRaises(Invalid):
+            validate(self.spec, self.root)
+
+    # Jest --json --outputFile / Vitest --reporter=json --outputFile.
+    def test_jest_counts_assertions(self):
+        result = self.report("jest-json", "jest.json", jest(["passed", "passed", "passed"]))
+        self.assertEqual((result["status"], result["passed_tests"]), ("pass", 3))
+
+    def test_jest_failed_with_exit_zero_fails(self):
+        self.assertEqual(self.report("jest-json", "jest.json", jest(["passed", "failed"]))["status"], "fail")
+
+    def test_jest_pending_and_todo_are_unverified(self):
+        self.assertEqual(self.report("jest-json", "jest.json", jest(["passed", "pending", "todo"]))["status"], "unverified")
+
+    def test_jest_suite_that_failed_to_run_fails(self):
+        self.assertEqual(self.report("jest-json", "jest.json", jest(["passed"], suite_status="failed", success=False))["status"], "fail")
+
+    def test_jest_inconsistent_totals_are_blocked(self):
+        self.assertEqual(self.report("jest-json", "jest.json", jest(["passed"], total=5))["status"], "blocked")
+
+    def test_jest_empty_run_is_blocked(self):
+        self.assertEqual(self.report("jest-json", "jest.json", jest([]))["status"], "blocked")
+
+    # go test -json on stdout.
+    def test_go_counts_test_events(self):
+        result = self.stdout("go-test-json", go_events({"Action": "run", "Test": "TestA"}, {"Action": "pass", "Test": "TestA"}, {"Action": "pass", "Test": "TestB"}, {"Action": "pass", "Package": "p"}))
+        self.assertEqual((result["status"], result["passed_tests"]), ("pass", 2))
+
+    def test_go_failed_test_fails(self):
+        self.assertEqual(self.stdout("go-test-json", go_events({"Action": "pass", "Test": "TestA"}, {"Action": "fail", "Test": "TestB"}))["status"], "fail")
+
+    def test_go_package_failure_fails(self):
+        self.assertEqual(self.stdout("go-test-json", go_events({"Action": "pass", "Test": "TestA"}, {"Action": "fail", "Package": "p"}))["status"], "fail")
+
+    def test_go_skipped_test_is_unverified(self):
+        self.assertEqual(self.stdout("go-test-json", go_events({"Action": "pass", "Test": "TestA"}, {"Action": "skip", "Test": "TestB"}))["status"], "unverified")
+
+    def test_go_package_without_tests_is_unverified(self):
+        self.assertEqual(self.stdout("go-test-json", go_events({"Action": "pass", "Test": "TestA"}, {"Action": "skip", "Package": "empty"}))["status"], "unverified")
+
+    def test_go_without_json_events_is_blocked(self):
+        self.assertEqual(self.stdout("go-test-json", "ok  \tp\t0.01s")["status"], "blocked")
+
+    # cargo test (libtest summary per test binary and doctests).
+    def test_cargo_sums_binaries(self):
+        text = "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s"
+        result = self.stdout("cargo-test", text)
+        self.assertEqual((result["status"], result["passed_tests"]), ("pass", 4))
+
+    def test_cargo_ignored_is_unverified(self):
+        self.assertEqual(self.stdout("cargo-test", "test result: ok. 2 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out")["status"], "unverified")
+
+    def test_cargo_failed_is_failure(self):
+        self.assertEqual(self.stdout("cargo-test", "test result: FAILED. 2 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out")["status"], "fail")
+
+    def test_cargo_without_summary_is_blocked(self):
+        self.assertEqual(self.stdout("cargo-test", "running 0 tests")["status"], "blocked")
+
+    def test_cargo_zero_tests_is_blocked(self):
+        self.assertEqual(self.stdout("cargo-test", "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out")["status"], "blocked")
+
+
+class RepositoryLayoutTests(unittest.TestCase):
+    def test_projects_holds_only_the_self_contract(self):
+        projects = Path(__file__).resolve().parent.parent / "projects"
+        found = sorted(entry.name for entry in projects.iterdir())
+        self.assertEqual(
+            found,
+            ["hirastack"],
+            "target-specific contracts and documents belong in the target repository "
+            "(or a user-selected verification repo), not in hirastack/projects/",
+        )
 
 
 if __name__ == "__main__":

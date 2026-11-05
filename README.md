@@ -13,20 +13,21 @@
 Python 3.11 以上とGit、POSIX `ps`。汎用 CLI に追加Python packageは不要です。対象プロジェクトの実動検証に必要な runtime は契約に記載します。現在のプロセス管理は macOS/Linux 用で、自分のprocess groupの終了を観測できる実行環境が必要です。観測が拒否された場合は成功とせずscratchを保持します。
 
 ```sh
-# hirastack のルートから。HAB は別の独立 checkout を使う。
-HAB=/absolute/path/to/hiraoku-agent-base
-python3 -m hirastack audit --target "$HAB" --spec projects/hab/contract.json
+# hirastack のルートから。対象は別の独立 checkout、契約は対象リポジトリ側に置く。
+TARGET=/absolute/path/to/project
+SPEC="$TARGET/path/to/design-verification/contract.json"
+python3 -m hirastack audit --target "$TARGET" --spec "$SPEC"
 # まず plan。検証コマンドは起動しない。新しい保存先を毎回指定する。
-python3 -m hirastack run --target "$HAB" --spec projects/hab/contract.json --out /tmp/hirastack-plan-001
+python3 -m hirastack run --target "$TARGET" --spec "$SPEC" --out /tmp/hirastack-plan-001
 # contract.json の argv と副作用・前提を読んだ後に実行。
-python3 -m hirastack run --target "$HAB" --spec projects/hab/contract.json --out /tmp/hirastack-run-001 --execute
+python3 -m hirastack run --target "$TARGET" --spec "$SPEC" --out /tmp/hirastack-run-001 --execute
 ```
 
 終了コードは `0=記録された必須scopeをすべて検証`、`1=検証した動作に失敗`、`2=仕様不備・drift・未検証・環境不足・未解決`。`audit: current` は文書の同一性と形式の検査結果で、設計適合の合格ではありません。手動検証は常に未検証として残ります。この版は人の申告だけで合格へ昇格させる機能を持ちません。
 
-初回適用は [HAB](projects/hab/README.md)。90件の first-party 文書、既存 verify スキル9件、第三者方法論16件、補助asset4件を索引化しました。主張は元commitに固定し、汎用コードに HAB や製品名の判定を持ち込みません。HABのコードは変更しません。
+プロジェクト固有の原則・文書台帳・契約・helperは、対象リポジトリ（または利用者が選んだ検証用リポジトリ）に置きます。hirastackには対象プロジェクトの文書を持ち込みません。汎用コードに製品名の判定も持ち込みません。
 
-第2適用先は [Python CLIのhirastack自身](projects/hirastack/README.md)。同じengineを別契約で実行し、HABやNodeに依存しない再利用を確認します。[再利用の手順と証拠範囲](docs/reuse.md)も参照してください。
+hirastack内の契約は [Python CLIのhirastack自身](projects/hirastack/README.md) だけです。同じengineを自分自身に適用し、特定の対象に依存しない再利用を確認します。[再利用の手順と証拠範囲](docs/reuse.md)も参照してください。
 
 別プロジェクトでは `init` が未レビューの文書索引を作ります。空の requirements は意図的に監査失敗になります。
 
