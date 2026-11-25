@@ -15,17 +15,17 @@
     },
     {
       "path": "README.md",
-      "sha256": "257999ffe6086f5b54827fd541fb62d0003c99558b45d0e7800869493dd08155",
+      "sha256": "9a38330283374577e060e1cbd40c1be5f4127855831546f236ba8f802955111a",
       "role": "normative",
       "review": "reviewed",
-      "summary": "汎用CLI/skillの入口、前提、終了code、未検証判定。対象固有の契約は対象リポジトリ側、hirastack内はself契約のみ。"
+      "summary": "汎用CLI/skillの入口、前提、終了code、未検証判定。対象固有の契約は対象リポジトリ側、hirastack内はself契約のみ。 スキル表にPR作成スキルを追加。"
     },
     {
       "path": "THIRD_PARTY.md",
-      "sha256": "aa3f22ecab5d14b97b75d65c0891aad906ba57edcfe7dbcb9890d21d567544fc",
+      "sha256": "4cea39ac01de9e36e24d12ef5971687b164f740ece236c8cafb73c2fc0673d46",
       "role": "context",
       "review": "reviewed",
-      "summary": "upstream revisionとMIT notice、翻案範囲、新規coordinatorを区別する出典台帳。"
+      "summary": "upstream revisionとMIT notice、翻案範囲、新規coordinatorを区別する出典台帳。 PR作成スキルが参照する上流の形式検証skillのrevisionとblob。"
     },
     {
       "path": "docs/architecture.md",
@@ -75,6 +75,20 @@
       "role": "normative",
       "review": "reviewed",
       "summary": "プロジェクト独立のagent workflow。作成・保守・実行の責務と出典・実証・権限を規定する。"
+    },
+    {
+      "path": "skills/open-verified-pr/SKILL.md",
+      "sha256": "b7b5f6143a69716d8da85df77660b115384a0f9a79c8f1d2665a9b20e670a9e3",
+      "role": "normative",
+      "review": "reviewed",
+      "summary": "プロジェクト独立のPR作成workflow。変更が触れる形式検証の同期・実行・状態遷移図・図のバグレビューをPR本文に載せ、push/PRの権限をユーザーのPR依頼に限定しmergeしない。"
+    },
+    {
+      "path": "skills/open-verified-pr/references/pr-body.md",
+      "sha256": "81ba9a96b4f0f087ce34bda333c514c95be16582c167f5969bc411ff4ebc3938",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "PR本文の節構成（検証表、mermaid図、図レビュー、レビュアー案内、再現手順）。"
     }
   ],
   "requirements": [
