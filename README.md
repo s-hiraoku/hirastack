@@ -11,6 +11,25 @@
 | [verify-design](skills/verify-design/SKILL.md) | 対象の契約と既存 verify スキルを解決し、実行して証拠・不足を報告する |
 | [open-verified-pr](skills/open-verified-pr/SKILL.md) | 変更が触れる形式検証を最新化・実行し、状態遷移図とバグレビュー・検証範囲をPR本文に載せて PR を出す |
 
+## 導入
+
+mattpocock/skills と同じく、plugin か `npx skills` のどちらかで入れます。両方入れると同じスキルが二重になるので、agent ごとに一つ選びます。
+
+```sh
+# Claude Code（plugin。CLI と参照ドキュメントも一緒に入る）
+claude plugin marketplace add s-hiraoku/hirastack
+claude plugin install hirastack@hirastack
+# Claude Code 2.1.275 以降は1行でも入る
+/plugin install hirastack --marketplace s-hiraoku/hirastack
+
+# そのほかの agent（スキルを編集可能なファイルとしてプロジェクトへコピー）
+npx skills@latest add s-hiraoku/hirastack -a <agent>   # cursor, codex, opencode など。-a を省くと選択
+```
+
+plugin は hirastack 全体を入れるので、スキルはそのまま同梱の CLI（`python3 -m hirastack`）とドキュメントを使います。`npx skills` はスキルのフォルダだけをコピーするので、CLI は `uvx --from git+https://github.com/s-hiraoku/hirastack@<commit> hirastack` で起動します（`pipx install git+https://github.com/s-hiraoku/hirastack` でも可）。どちらの方法でも、既存のグローバル設定は変更しません。
+
+open-verified-pr は pstack の statechart と形式検証スキル、TLA+ を使う場合は Node の [tla-ts](https://github.com/aidenybai/tla-ts) を前提にします。
+
 Python 3.11 以上とGit、POSIX `ps`。汎用 CLI に追加Python packageは不要です。対象プロジェクトの実動検証に必要な runtime は契約に記載します。現在のプロセス管理は macOS/Linux 用で、自分のprocess groupの終了を観測できる実行環境が必要です。観測が拒否された場合は成功とせずscratchを保持します。
 
 ```sh
@@ -37,7 +56,5 @@ python3 -m hirastack init --target /path/to/app --name example --repository http
 python3 -m hirastack inventory --target /path/to/app
 python3 -m unittest discover -s tests -v
 ```
-
-スキルの利用は、各 `skills/<name>` を利用環境のスキルディレクトリへコピーまたはリンクします。Codex の repo-local は `.agents/skills/`、Claude Code は `.claude/skills/`、Cursor は `.cursor/skills/`。CLI は hirastack のルートから起動し、生成物は別リポジトリに置けます。インストールや既存グローバル設定の変更は自動では行いません。
 
 契約の形式と限界は [contract-format.md](docs/contract-format.md)、設計は [architecture.md](docs/architecture.md)、参考元は [THIRD_PARTY.md](THIRD_PARTY.md) を参照してください。

@@ -5,7 +5,7 @@ description: Create a source-cited design verification contract and project-loca
 
 # Create design verification
 
-Use the hirastack CLI from its repository root. This is an agent workflow: source discovery is mechanical, interpreting design intent is your responsibility. Read [contract format](../../docs/contract-format.md) and [architecture](../../docs/architecture.md). Resolve these relative to this skill's installed source; if only this directory was installed, locate the hirastack checkout before continuing.
+Use the hirastack CLI from its repository root. This is an agent workflow: source discovery is mechanical, interpreting design intent is your responsibility. Read [contract format](../../docs/contract-format.md) and [architecture](../../docs/architecture.md). Resolve these relative to this skill's installed source; a plugin install keeps them two levels up. When this skill was installed alone (for example with `npx skills add`), the CLI and docs are not beside it: run `uvx --from git+https://github.com/s-hiraoku/hirastack@<commit> hirastack` in place of `python3 -m hirastack`, pin one commit and record it, and read the linked docs at that commit on GitHub.
 
 ## Discover the project
 

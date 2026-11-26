@@ -9,7 +9,7 @@ This coordinator runs existing verification. It does not silently author a new c
 
 ## Resolve and prepare
 
-Read AGENTS.md, the exact project's contract, principles, review notes, generated verify skill and feature map. Resolve target origin, checkout, commit and dirty state. Several plausible contracts require a concrete selection; none means use create-design-verification. Locate the hirastack checkout and run its CLI there.
+Read AGENTS.md, the exact project's contract, principles, review notes, generated verify skill and feature map. Resolve target origin, checkout, commit and dirty state. Several plausible contracts require a concrete selection; none means use create-design-verification. Locate the hirastack checkout or plugin root (two levels above this skill) and run its CLI there. When this skill was installed alone (for example with `npx skills add`), the CLI and docs are not beside it: run `uvx --from git+https://github.com/s-hiraoku/hirastack@<commit> hirastack` in place of `python3 -m hirastack`, pin one commit and record it, and read the linked docs at that commit on GitHub.
 
 Inspect every command/helper and prerequisites before `--execute`. External credentials, production data, paid models, permanent services and remote writes need the user's already granted scope. Synthetic local fixtures may run within the task's verification scope. Do not use a user's existing live process as an isolated fixture.
 

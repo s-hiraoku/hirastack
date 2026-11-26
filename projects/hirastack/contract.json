@@ -15,10 +15,10 @@
     },
     {
       "path": "README.md",
-      "sha256": "9a38330283374577e060e1cbd40c1be5f4127855831546f236ba8f802955111a",
+      "sha256": "bcdc6d6e8e9ffe5f1ce62d445cd3706fbe0a2ecf7db2f7fc05acf7092d7b3e99",
       "role": "normative",
       "review": "reviewed",
-      "summary": "汎用CLI/skillの入口、前提、終了code、未検証判定。対象固有の契約は対象リポジトリ側、hirastack内はself契約のみ。 スキル表にPR作成スキルを追加。"
+      "summary": "汎用CLI/skillの入口、前提、終了code、未検証判定。対象固有の契約は対象リポジトリ側、hirastack内はself契約のみ。 スキル表にPR作成スキルを追加。 導入節（plugin と npx skills、単独導入時のuvx起動、open-verified-prの前提）。"
     },
     {
       "path": "THIRD_PARTY.md",
@@ -57,24 +57,24 @@
     },
     {
       "path": "skills/create-design-verification/SKILL.md",
-      "sha256": "c679b117e7ad0d7f5ad112d21ac9139085bf27d56ea3a2876608a4dc1aa79dfc",
+      "sha256": "6a1d710003f3882006541612fd284cc465e913bf1bca29aca8dc2df8ad0e9c9d",
       "role": "normative",
       "review": "reviewed",
-      "summary": "プロジェクト独立のagent workflow。作成・保守・実行の責務と出典・実証・権限を規定する。"
+      "summary": "プロジェクト独立のagent workflow。作成・保守・実行の責務と出典・実証・権限を規定する。 単独導入時はpinしたcommitのuvxでCLI、GitHubでdocsを読む。"
     },
     {
       "path": "skills/maintain-design-verification/SKILL.md",
-      "sha256": "ff8057cac6c26e40c078eadc722001bd08f0aab34fc36680e150a3cb394a51e5",
+      "sha256": "26f35c8c57f4e913995e8d7fac78f8b5ceddfb5873860c8820b8dc1e6bf05daf",
       "role": "normative",
       "review": "reviewed",
-      "summary": "プロジェクト独立のagent workflow。作成・保守・実行の責務と出典・実証・権限を規定する。"
+      "summary": "プロジェクト独立のagent workflow。作成・保守・実行の責務と出典・実証・権限を規定する。 単独導入時はpinしたcommitのuvxでCLI、GitHubでdocsを読む。"
     },
     {
       "path": "skills/verify-design/SKILL.md",
-      "sha256": "05d77274a0dec66a779970ecdd4e5f944467c015bd66d567d51fff67e463675f",
+      "sha256": "53bba954e26bce9ced05777d39dd59616f2532d7774c0967a333f5b7aefc23bf",
       "role": "normative",
       "review": "reviewed",
-      "summary": "プロジェクト独立のagent workflow。作成・保守・実行の責務と出典・実証・権限を規定する。"
+      "summary": "プロジェクト独立のagent workflow。作成・保守・実行の責務と出典・実証・権限を規定する。 単独導入時はpinしたcommitのuvxでCLI、GitHubでdocsを読む。"
     },
     {
       "path": "skills/open-verified-pr/SKILL.md",
