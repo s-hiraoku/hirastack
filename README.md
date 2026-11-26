@@ -9,6 +9,7 @@
 | [create-design-verification](skills/create-design-verification/SKILL.md) | 全文書を調査し、設計原則・仕様・検証スキルを生成して実証する |
 | [maintain-design-verification](skills/maintain-design-verification/SKILL.md) | 設計・実装・検証の変化を分類し、検証資産を保守する |
 | [verify-design](skills/verify-design/SKILL.md) | 対象の契約と既存 verify スキルを解決し、実行して証拠・不足を報告する |
+| [open-verified-pr](skills/open-verified-pr/SKILL.md) | 変更が触れる形式検証を最新化・実行し、状態遷移図とバグレビュー・検証範囲をPR本文に載せて PR を出す |
 
 Python 3.11 以上とGit、POSIX `ps`。汎用 CLI に追加Python packageは不要です。対象プロジェクトの実動検証に必要な runtime は契約に記載します。現在のプロセス管理は macOS/Linux 用で、自分のprocess groupの終了を観測できる実行環境が必要です。観測が拒否された場合は成功とせずscratchを保持します。
 
