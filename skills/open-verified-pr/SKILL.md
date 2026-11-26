@@ -30,6 +30,8 @@ Compare the PR diff (merge base to head) with each coverage record. Also count a
 
 Run each touched check with its own command, at the head commit, into a scratch output folder outside the repository. When the check is a state-machine model, read the result with the statechart workflow and keep its chart, report and rerun command. Keep the modeling language the project's verify skill already uses; do not switch languages inside a PR. Follow that workflow's current instructions for running, labeling and hiding steps; do not copy its commands or paths into this skill or the target.
 
+For a TLA+ model, check it with [tla-ts](https://github.com/aidenybai/tla-ts), a TLC-compatible model checker that runs on Node without a JVM. Use the version the project pins, or pin one exact npm version and record it in the PR. When the installed statechart workflow drives its own checker instead of tla-ts, run it as it is, also check the same spec and config with tla-ts, and compare the verdict, each broken rule and the distinct-state count. A difference makes the check blocked, not passed; report both outputs. When tla-ts rejects a construct as unsupported, say so and keep the other checker's result as the evidence.
+
 Label states and arrows in the words of the PR's reader. Keep the chart near 20 arrows. Keep every state of a bug path and every mark.
 
 When the PR changes the model or the covered behavior, also draw the chart at the merge base with the same view, and list the states and arrows that were added, removed or relabeled. That difference is what the reviewer is approving.

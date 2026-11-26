@@ -41,5 +41,5 @@ Outside every model: what the verification does not cover.
 
 ## Reproduce
 
-The command that regenerates each chart into a new output folder, and the project's fast checks with their totals.
+The command that regenerates each chart into a new output folder, the checker and its exact version (for example tla-ts and its npm version), and the project's fast checks with their totals.
 ````
