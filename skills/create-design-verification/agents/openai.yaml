@@ -1,0 +1,3 @@
+interface:
+  display_name: "Create design verification"
+  short_description: "Turn design docs into a cited verification contract"

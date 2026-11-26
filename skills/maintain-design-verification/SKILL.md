@@ -5,7 +5,7 @@ description: Maintain an existing source-cited design verification contract when
 
 # Maintain design verification
 
-Resolve the target, existing contract, generated verify skill and feature map. Read their instructions plus [contract format](../../docs/contract-format.md). If none exists, use create-design-verification. When this skill was installed alone (for example with `npx skills add`), the CLI and docs are not beside it: run `uvx --from git+https://github.com/s-hiraoku/hirastack@<commit> hirastack` in place of `python3 -m hirastack`, pin one commit and record it, and read the linked docs at that commit on GitHub. Edit verification-owned files only; product changes belong in a separate authorized task.
+Resolve the target, existing contract, generated verify skill and feature map. If the target's `CLAUDE.md` or `AGENTS.md` has a `## hirastack` section, use its bundle location, CLI command and listed skills. If it has none, tell the user that `/setup-hirastack` records them once, and resolve them yourself for this run. Read their instructions plus [contract format](../../docs/contract-format.md). If none exists, use create-design-verification. When this skill was installed alone (for example with `npx skills add`), the CLI and docs are not beside it: run `uvx --from git+https://github.com/s-hiraoku/hirastack@<commit> hirastack` in place of `python3 -m hirastack`, pin one commit and record it, and read the linked docs at that commit on GitHub. Edit verification-owned files only; product changes belong in a separate authorized task.
 
 ## Audit and source review
 

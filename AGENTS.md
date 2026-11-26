@@ -9,3 +9,4 @@
 - Do not change frozen source pins, drop checks, replace manual with automatic pass, or narrow requirements to hide a regression.
 - Commit/push/PR/merge/deploy follow the user's current authorization; skill invocation alone grants none of them.
 - Evidence contains target output; inspect before sharing. Do not commit private stores or credentials.
+- Keep `.claude-plugin/plugin.json` listing every `skills/*` directory. Bump its version and `pyproject.toml`'s together when a merged change should reach plugin users; installed plugins update only on a new version.

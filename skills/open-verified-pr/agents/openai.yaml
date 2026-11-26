@@ -1,0 +1,5 @@
+interface:
+  display_name: "Open verified PR"
+  short_description: "Open a PR with checked state-transition charts"
+policy:
+  allow_implicit_invocation: false

@@ -18,6 +18,7 @@
     "pull-request"
   ],
   "skills": [
+    "./skills/setup-hirastack",
     "./skills/create-design-verification",
     "./skills/maintain-design-verification",
     "./skills/verify-design",

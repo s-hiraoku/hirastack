@@ -14,7 +14,7 @@ Resolve [the PR body layout](references/pr-body.md) relative to this skill's ins
 
 ## Prepare the change
 
-Read the target's AGENTS.md, contribution notes and PR template (`.github/pull_request_template.md` or `.github/PULL_REQUEST_TEMPLATE/`). The template's headings come first; this skill's sections go under or after them. Resolve the base branch, the merge base, the head commit and the dirty state. Uncommitted work is not part of the PR: commit it only if the user asked for that, otherwise stop and say what is uncommitted. Run the fast checks (tests, type check, lint) that the project requires before a PR, and record their totals.
+If the target's `CLAUDE.md` or `AGENTS.md` has a `## hirastack` section, read its list of formal verification skills first; it is a starting point, not a substitute for the search below. Read the target's AGENTS.md, contribution notes and PR template (`.github/pull_request_template.md` or `.github/PULL_REQUEST_TEMPLATE/`). The template's headings come first; this skill's sections go under or after them. Resolve the base branch, the merge base, the head commit and the dirty state. Uncommitted work is not part of the PR: commit it only if the user asked for that, otherwise stop and say what is uncommitted. Run the fast checks (tests, type check, lint) that the project requires before a PR, and record their totals.
 
 ## Find the formal checks this change touches
 

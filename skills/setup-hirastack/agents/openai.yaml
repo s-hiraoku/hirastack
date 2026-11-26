@@ -1,0 +1,5 @@
+interface:
+  display_name: "Setup hirastack"
+  short_description: "Prepare a repo for the hirastack skills"
+policy:
+  allow_implicit_invocation: false

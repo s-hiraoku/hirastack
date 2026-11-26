@@ -1,0 +1,3 @@
+interface:
+  display_name: "Verify design"
+  short_description: "Run the contract and report evidence and gaps"

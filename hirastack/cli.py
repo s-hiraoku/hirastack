@@ -463,9 +463,67 @@ def run(spec, root, out, execute, spec_hash, bundle=None):
     return report
 
 
+REQUIRED_TOOLS = ("git", "ps")
+# Used only by open-verified-pr when a project has TLA+ models: tla-ts runs on Node, pstack's statechart runs Java TLC.
+OPTIONAL_TOOLS = {"node": ["node", "--version"], "npx": ["npx", "--version"], "java": ["java", "-version"]}
+OPTIONAL_SKILLS = ("statechart", "create-formal-verification-skill", "maintain-formal-verification-skill")
+
+
+SKILL_DIRS = (".agents/skills", ".claude/skills", ".cursor/skills", ".codex/skills", ".gemini/skills", ".github/skills", ".copilot/skills", ".opencode/skills")
+# Installed plugin copies only. Marketplace clones (for example ~/.claude/plugins/marketplaces) are not installs.
+PLUGIN_CACHES = (".claude/plugins/cache", ".codex/plugins/cache", ".copilot/installed-plugins", ".cursor/plugins")
+
+
+def skill_roots(target, home):
+    roots = [target / d for d in SKILL_DIRS] if target else []
+    roots += [home / d for d in SKILL_DIRS + PLUGIN_CACHES]
+    return [r for r in roots if r.is_dir()]
+
+
+def find_skill(roots, name):
+    # Bounded depth: a skill sits directly in a skill folder or under <plugin>/<version>/skills/ in a cache.
+    found = set()
+    for root in roots:
+        for depth in range(6):
+            found.update(str(p.parent) for p in root.glob("*/" * depth + f"{name}/SKILL.md") if "marketplaces" not in p.relative_to(root).parts)
+    return sorted(found)
+
+
+def tool_version(argv):
+    try:
+        result = subprocess.run(argv, capture_output=True, text=True, timeout=10)
+    except (OSError, subprocess.TimeoutExpired) as error:
+        return False, str(error)
+    # java prints its version to stderr, sometimes after JAVA_TOOL_OPTIONS notices.
+    text = [line for line in (result.stdout + result.stderr).strip().splitlines() if not line.startswith("Picked up ")]
+    return result.returncode == 0, text[0] if text else ""
+
+
+def doctor(target=None, home=None):
+    """Report what this machine has for hirastack. It installs and changes nothing."""
+    home = Path.home() if home is None else home
+    checks = [{"name": "python>=3.11", "required": True, "ok": sys.version_info >= (3, 11), "detail": sys.version.split()[0]}]
+    for name in REQUIRED_TOOLS:
+        path = shutil.which(name)
+        checks.append({"name": name, "required": True, "ok": bool(path), "detail": path or "not on PATH"})
+    if shutil.which("ps"):
+        ok, detail = tool_version(["ps", "-axo", "pgid=,stat="])
+        checks.append({"name": "ps process-group listing", "required": True, "ok": ok, "detail": "readable" if ok else detail})
+    for name, argv in OPTIONAL_TOOLS.items():
+        ok, detail = tool_version(argv) if shutil.which(argv[0]) else (False, "not on PATH")
+        checks.append({"name": name, "required": False, "ok": ok, "detail": detail, "used_by": "open-verified-pr"})
+    roots = skill_roots(target, home)
+    for name in OPTIONAL_SKILLS:
+        found = find_skill(roots, name)
+        checks.append({"name": f"skill {name}", "required": False, "ok": bool(found), "detail": found[0] if found else "not found in " + ", ".join(map(str, roots)) if roots else "no skill directories found", "used_by": "open-verified-pr"})
+    return {"ok": all(c["ok"] for c in checks if c["required"]), "checks": checks}
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="action", required=True)
+    check = sub.add_parser("doctor", help="report required and optional tools and skills; installs nothing")
+    check.add_argument("--target", type=Path, help="project whose local skill directories are also searched")
     for name in ("init", "inventory", "audit", "run"):
         command = sub.add_parser(name)
         command.add_argument("--target", required=True, type=Path)
@@ -479,6 +537,10 @@ def main(argv=None):
             command.add_argument("--execute", action="store_true", help="run the reviewed contract's argv in the target; commands may have side effects")
     args = parser.parse_args(argv)
     try:
+        if args.action == "doctor":
+            result = doctor(args.target.resolve() if args.target else None)
+            print(json.dumps(result, indent=2, ensure_ascii=False))
+            return 0 if result["ok"] else 2
         root = args.target.resolve()
         require(root.is_dir(), "target directory does not exist")
         if args.action == "inventory":
