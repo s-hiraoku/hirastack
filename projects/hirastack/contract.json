@@ -8,31 +8,31 @@
   "documents": [
     {
       "path": "AGENTS.md",
-      "sha256": "600966754fccd6ef59d4b182dabfc5d5cae096df8c6f8d15784cb7de6f406eae",
+      "sha256": "ea93827ecb413dcfb9edcd5ea020771841ecdb6272d203c7f2b3a1f3a37bca80",
       "role": "normative",
       "review": "reviewed",
-      "summary": "汎用/固有の分離（対象固有の資産は対象側に置きhirastackに入れない）、出典review、未解決保持、検証資産だけの保守と明示的公開権限。"
+      "summary": "汎用/固有の分離（対象固有の資産は対象側に置きhirastackに入れない）、出典review、未解決保持、検証資産だけの保守と明示的公開権限。 plugin manifestの全skill列挙とversion同時更新。"
     },
     {
       "path": "README.md",
-      "sha256": "9a38330283374577e060e1cbd40c1be5f4127855831546f236ba8f802955111a",
+      "sha256": "a0d37c595919f0738954a9a3617af9047d96e6cc99fb8f17c7828b219f2c33c2",
       "role": "normative",
       "review": "reviewed",
-      "summary": "汎用CLI/skillの入口、前提、終了code、未検証判定。対象固有の契約は対象リポジトリ側、hirastack内はself契約のみ。 スキル表にPR作成スキルを追加。"
+      "summary": "汎用CLI/skillの入口、前提、終了code、未検証判定。対象固有の契約は対象リポジトリ側、hirastack内はself契約のみ。mattpocock/skillsと同じ構成の導入（agent別plugin/skills.sh、更新方法）、/setup-hirastack、失敗モード別のスキル説明、利用者/モデル呼び出し別リファレンス、スキル別前提、version同時更新、doctor。"
     },
     {
       "path": "THIRD_PARTY.md",
-      "sha256": "d085a21c88fedfa32076360bde271c2eefe1af94d52333b359e4fe9d100a2ef5",
+      "sha256": "c6081c24730923d104723bdda36dc286ecade99c5cc194840b24e30b38470a40",
       "role": "context",
       "review": "reviewed",
-      "summary": "upstream revisionとMIT notice、翻案範囲、新規coordinatorを区別する出典台帳。 PR作成スキルが参照する上流の形式検証skillのrevisionとblob。 外部checkerのtla-tsの参照revision。"
+      "summary": "upstream revisionとMIT notice、翻案範囲、新規coordinatorを区別する出典台帳。 PR作成スキルが参照する上流の形式検証skillのrevisionとblob。 外部checkerのtla-tsの参照revision。 導入構成とsetup-hirastackの手順の参照元としてmattpocock/skillsのrevision・blob・MIT notice。"
     },
     {
       "path": "docs/architecture.md",
-      "sha256": "c2339ce801a7a92987ff23ec54c9319a09a75d1a91613a432953ea8272807e09",
+      "sha256": "a40b095e5c13c597be5e514bdea79bdcd3e1f4c21ef62fa11e3eacbaa47e3bca",
       "role": "normative",
       "review": "reviewed",
-      "summary": "汎用runnerの責務・contract・再利用の仕様。意味判断と機械検査、証拠scopeの限界を明示。"
+      "summary": "汎用runnerの責務・contract・再利用の仕様。意味判断と機械検査、証拠scopeの限界を明示。 doctorは環境の報告だけで何も変更しない。"
     },
     {
       "path": "docs/contract-format.md",
@@ -49,6 +49,13 @@
       "summary": "汎用runnerの責務・contract・再利用の仕様。意味判断と機械検査、証拠scopeの限界を明示。"
     },
     {
+      "path": "docs/workflow.md",
+      "sha256": "717666b82e33b24d493a1eb0597cb3dfe89ded954e81a251ca5945ef3f444e3e",
+      "role": "context",
+      "review": "reviewed",
+      "summary": "mattpocock/skills・pstackとの段階別の使い分けと受け渡し（初回設定を含む）。CLIは意味やスキル選択を決めない。"
+    },
+    {
       "path": "projects/hirastack/README.md",
       "sha256": "0cfd36d140ad023b661378a247abaf6549ddbc34773e35c36e3ee67108e089bf",
       "role": "context",
@@ -56,32 +63,39 @@
       "summary": "hirastack内で唯一の適用先（自分自身）のscopeと再利用前提。self適用は全projectの品質やsandboxの証明ではない。"
     },
     {
-      "path": "skills/create-design-verification/SKILL.md",
-      "sha256": "c679b117e7ad0d7f5ad112d21ac9139085bf27d56ea3a2876608a4dc1aa79dfc",
+      "path": "skills/setup-hirastack/SKILL.md",
+      "sha256": "36fd1b9437da90a74b6aed943fc16d7bab00084efda0094c5c8974b38406a986",
       "role": "normative",
       "review": "reviewed",
-      "summary": "プロジェクト独立のagent workflow。作成・保守・実行の責務と出典・実証・権限を規定する。"
+      "summary": "リポジトリごとの初回設定。doctorで前提を確認し、既存の契約・verify/形式検証スキルを探し、契約の置き場所とCLIの起動方法を利用者の確認後に`## hirastack`節へ書く。何もインストールせずグローバル設定を変えない。"
+    },
+    {
+      "path": "skills/create-design-verification/SKILL.md",
+      "sha256": "a834aa7b00c53da48d450225e1857e6538a43211efa21fd04a0e58212eb3ac93",
+      "role": "normative",
+      "review": "reviewed",
+      "summary": "プロジェクト独立のagent workflow。作成・保守・実行の責務と出典・実証・権限を規定する。 単独導入時はpinしたcommitのuvxでCLI、GitHubでdocsを読む。 対象の`## hirastack`節（setup-hirastackが記録）を読む。"
     },
     {
       "path": "skills/maintain-design-verification/SKILL.md",
-      "sha256": "ff8057cac6c26e40c078eadc722001bd08f0aab34fc36680e150a3cb394a51e5",
+      "sha256": "b4e2c0c589a67e43acfcfe7be7a4c4aaea7df0a38d42f0618a5ad7fb5c28022e",
       "role": "normative",
       "review": "reviewed",
-      "summary": "プロジェクト独立のagent workflow。作成・保守・実行の責務と出典・実証・権限を規定する。"
+      "summary": "プロジェクト独立のagent workflow。作成・保守・実行の責務と出典・実証・権限を規定する。 単独導入時はpinしたcommitのuvxでCLI、GitHubでdocsを読む。 対象の`## hirastack`節（setup-hirastackが記録）を読む。"
     },
     {
       "path": "skills/verify-design/SKILL.md",
-      "sha256": "05d77274a0dec66a779970ecdd4e5f944467c015bd66d567d51fff67e463675f",
+      "sha256": "4ee324c055820cbd83d4a0f7f520ba773f1092ecb4fbe95a59156b0973ff932e",
       "role": "normative",
       "review": "reviewed",
-      "summary": "プロジェクト独立のagent workflow。作成・保守・実行の責務と出典・実証・権限を規定する。"
+      "summary": "プロジェクト独立のagent workflow。作成・保守・実行の責務と出典・実証・権限を規定する。 単独導入時はpinしたcommitのuvxでCLI、GitHubでdocsを読む。 対象の`## hirastack`節（setup-hirastackが記録）を読む。"
     },
     {
       "path": "skills/open-verified-pr/SKILL.md",
-      "sha256": "1418707a647b0a7e35687b92def733af54b4ca5101fa3f6a826ce7debe0f7b92",
+      "sha256": "6c2b565f4729f8f61256b1110116a71b3e7900e075c10d01258ec8e9da7fcee5",
       "role": "normative",
       "review": "reviewed",
-      "summary": "プロジェクト独立のPR作成workflow。変更が触れる形式検証の同期・実行・状態遷移図・図のバグレビューをPR本文に載せ、push/PRの権限をユーザーのPR依頼に限定しmergeしない。 TLA+はtla-tsで検査し、別checkerとの結果差はblocked。"
+      "summary": "プロジェクト独立のPR作成workflow。変更が触れる形式検証の同期・実行・状態遷移図・図のバグレビューをPR本文に載せ、push/PRの権限をユーザーのPR依頼に限定しmergeしない。 TLA+はtla-tsで検査し、別checkerとの結果差はblocked。 対象の`## hirastack`節（setup-hirastackが記録）を読む。"
     },
     {
       "path": "skills/open-verified-pr/references/pr-body.md",

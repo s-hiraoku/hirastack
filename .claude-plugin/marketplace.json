@@ -1,0 +1,22 @@
+{
+  "name": "hirastack",
+  "owner": {
+    "name": "s-hiraoku",
+    "url": "https://github.com/s-hiraoku"
+  },
+  "description": "hirastack design verification skills, as an installable plugin.",
+  "plugins": [
+    {
+      "name": "hirastack",
+      "source": "./",
+      "description": "Source-cited design verification contracts, their runner, and verified PRs with state-transition charts.",
+      "category": "engineering",
+      "keywords": [
+        "design",
+        "verification",
+        "formal-verification",
+        "statechart"
+      ]
+    }
+  ]
+}

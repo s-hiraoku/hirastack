@@ -1,6 +1,7 @@
 import copy
 import json
 import os
+import re
 from pathlib import Path
 import subprocess
 import sys
@@ -404,6 +405,54 @@ class RepositoryLayoutTests(unittest.TestCase):
             "target-specific contracts and documents belong in the target repository "
             "(or a user-selected verification repo), not in hirastack/projects/",
         )
+
+
+class DoctorAndPackagingTests(unittest.TestCase):
+    tool_root = Path(__file__).resolve().parents[1]
+
+    def test_doctor_finds_optional_skills_in_target_and_plugin_caches(self):
+        from hirastack.cli import doctor
+        with tempfile.TemporaryDirectory() as temp:
+            base = Path(temp)
+            (base / "app/.claude/skills/statechart").mkdir(parents=True)
+            (base / "app/.claude/skills/statechart/SKILL.md").write_text("---\nname: statechart\n---\n")
+            cached = base / "home/.codex/plugins/cache/pstack/pstack/1.0.0/skills/create-formal-verification-skill"
+            cached.mkdir(parents=True)
+            (cached / "SKILL.md").write_text("---\nname: create-formal-verification-skill\n---\n")
+            # A marketplace clone is not an install; doctor must not count it.
+            clone = base / "home/.claude/plugins/marketplaces/cursor-plugins/pstack/skills/maintain-formal-verification-skill"
+            clone.mkdir(parents=True)
+            (clone / "SKILL.md").write_text("---\nname: maintain-formal-verification-skill\n---\n")
+            result = doctor(base / "app", base / "home")
+        skills = {c["name"]: c for c in result["checks"] if c["name"].startswith("skill ")}
+        self.assertTrue(skills["skill statechart"]["ok"])
+        self.assertTrue(skills["skill create-formal-verification-skill"]["ok"])
+        self.assertFalse(skills["skill maintain-formal-verification-skill"]["ok"])
+        self.assertTrue(all(not c["required"] for c in skills.values()))
+
+    def test_doctor_fails_only_on_a_missing_required_tool(self):
+        with tempfile.TemporaryDirectory() as temp:
+            empty = Path(temp)
+            env = {**os.environ, "PATH": str(empty), "HOME": str(empty)}
+            missing = subprocess.run([sys.executable, "-m", "hirastack", "doctor"], cwd=self.tool_root, env=env, capture_output=True, text=True)
+            self.assertEqual(missing.returncode, 2, missing.stderr)
+            failed = {c["name"] for c in json.loads(missing.stdout)["checks"] if c["required"] and not c["ok"]}
+            self.assertEqual(failed, {"git", "ps"})
+            env["PATH"] = os.environ["PATH"]
+            present = subprocess.run([sys.executable, "-m", "hirastack", "doctor"], cwd=self.tool_root, env=env, capture_output=True, text=True)
+            self.assertEqual(present.returncode, 0, present.stdout)
+
+    def test_plugin_manifest_lists_every_skill_and_matches_package_version(self):
+        plugin = json.loads((self.tool_root / ".claude-plugin/plugin.json").read_text())
+        market = json.loads((self.tool_root / ".claude-plugin/marketplace.json").read_text())
+        on_disk = sorted(f"./{p.parent.relative_to(self.tool_root).as_posix()}" for p in (self.tool_root / "skills").glob("*/SKILL.md"))
+        self.assertEqual(sorted(plugin["skills"]), on_disk)
+        self.assertEqual([p["name"] for p in market["plugins"]], [plugin["name"]])
+        version = re.search(r'^version = "([^"]+)"', (self.tool_root / "pyproject.toml").read_text(), re.M).group(1)
+        self.assertEqual(plugin["version"], version)
+        for skill in on_disk:
+            head = (self.tool_root / skill / "SKILL.md").read_text().split("---")[1]
+            self.assertIn(f"name: {Path(skill).name}\n", head)
 
 
 if __name__ == "__main__":

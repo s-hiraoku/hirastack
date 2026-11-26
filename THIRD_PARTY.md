@@ -20,5 +20,12 @@ The skill names [tla-ts](https://github.com/aidenybai/tla-ts) (MIT, copyright (c
 
 The skill's own authorization is limited to pushing the work branch and opening one PR when the user asked for that PR; it never merges.
 
+The install layout, the README's installation and "why these skills exist" structure, and the setup-hirastack skill's explore, ask, confirm and write steps follow [mattpocock/skills](https://github.com/mattpocock/skills), MIT licensed, copyright (c) 2026 Matt Pocock. The complete notice is retained in [third_party/mattpocock-skills-LICENSE](third_party/mattpocock-skills-LICENSE). Inspected at repository commit `6f7f7831a625f040a8e06a0e7954826b87ce775a`:
+
+- [setup-matt-pocock-skills](https://github.com/mattpocock/skills/blob/6f7f7831a625f040a8e06a0e7954826b87ce775a/skills/engineering/setup-matt-pocock-skills/SKILL.md), blob `2df0b07981718fa5d9a51526dfbcaee87e3a543d`.
+- [install-block](https://github.com/mattpocock/skills/blob/6f7f7831a625f040a8e06a0e7954826b87ce775a/.agents/install-block.md), blob `29e5fb1370973a341793a477d18d52f276873ce7`.
+
+setup-hirastack records hirastack's own settings (bundle location, CLI pin, existing verification skills) and copies none of that skill's issue-tracker, label or domain-doc content.
+
 hirastack adds design-document inventory, source/excerpt hashes, purpose/rationale/invariant ledgers, explicit ambiguity, a dependency-free runner, conservative outcome aggregation and the new verify-design coordinator. Upstream's maintenance workflow is not treated as authorization to create commits, PRs or deployments. verify-design is a new coordinator, not a claim that pstack already provides a generic execution skill.
 
