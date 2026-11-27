@@ -1,6 +1,6 @@
 {
   "name": "hirastack",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Keep a design document's purpose, responsibilities and invariants as a source-cited verification contract, run it, and open PRs that carry the state-transition chart of every formal check they touch.",
   "author": {
     "name": "s-hiraoku",

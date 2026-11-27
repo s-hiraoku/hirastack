@@ -1,7 +1,6 @@
 ---
 name: open-verified-pr
-description: Open a pull request whose description carries the state-transition chart of every formal verification check the change touches, reviewed for bugs, with the verified scope, bounds and remaining review stated plainly. Use when the user asks to open or prepare a PR for a change in a project that has formal verification skills.
-disable-model-invocation: true
+description: Open a pull request whose description carries the state-transition chart of every formal verification check the change touches, reviewed for bugs, with the verified scope, bounds and remaining review stated plainly. Use only when the user explicitly asks for a verified PR (/open-verified-pr), or when another PR workflow invokes it for the verification sections; a plain request to open a PR belongs to the project's own PR workflow.
 ---
 
 # Open a verified pull request
@@ -9,6 +8,8 @@ disable-model-invocation: true
 The goal is a PR whose reviewer can decide mostly from one state-transition chart: the chart shows every order of steps inside the model's scope, the agent has already looked for bugs in it, and the description says exactly what the chart does not cover. A chart is only as trustworthy as the model behind it, so the PR must also show that the model still describes the code at this commit.
 
 The user's request to open the PR is the authorization for this skill's remote writes: pushing the current work branch and opening one PR. If this skill was reached without such a request, stop after drafting the description. It never authorizes merging, deploying, force-pushing, pushing to the default branch or messaging anyone. Do not change product code to make a check pass.
+
+When another PR workflow invokes this skill and keeps the push and the PR creation for itself, do everything up to the description, then hand back the sections from [the PR body layout](references/pr-body.md) after the template headings, plus whether the PR should be a draft. Do not push or open the PR in that case.
 
 Resolve [the PR body layout](references/pr-body.md) relative to this skill's installed source.
 
