@@ -92,10 +92,10 @@
     },
     {
       "path": "skills/open-verified-pr/SKILL.md",
-      "sha256": "6c2b565f4729f8f61256b1110116a71b3e7900e075c10d01258ec8e9da7fcee5",
+      "sha256": "62303322f7f962ab1038818fa236480ab77a2a72748d65c17b37012ea18cc5d3",
       "role": "normative",
       "review": "reviewed",
-      "summary": "プロジェクト独立のPR作成workflow。変更が触れる形式検証の同期・実行・状態遷移図・図のバグレビューをPR本文に載せ、push/PRの権限をユーザーのPR依頼に限定しmergeしない。 TLA+はtla-tsで検査し、別checkerとの結果差はblocked。 対象の`## hirastack`節（setup-hirastackが記録）を読む。"
+      "summary": "プロジェクト独立のPR作成workflow。変更が触れる形式検証の同期・実行・状態遷移図・図のバグレビューをPR本文に載せ、push/PRの権限をユーザーのPR依頼に限定しmergeしない。 明示の/open-verified-prか他のPR workflowからの呼び出しでのみ使い、呼び出し元がpush/PRを持つときは本文の節とdraft要否を返して止まる。 TLA+はtla-tsで検査し、別checkerとの結果差はblocked。 対象の`## hirastack`節（setup-hirastackが記録）を読む。"
     },
     {
       "path": "skills/open-verified-pr/references/pr-body.md",
